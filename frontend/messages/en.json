@@ -1,0 +1,91 @@
+{
+  "Index": {
+    "title": "MANAR",
+    "subtitle": "Logistics Educational Web Application",
+    "searchPlaceholder": "Search terms, books, or academic entries...",
+    "searchPrefix": "Search in",
+    "terms": "Terms",
+    "books": "Books",
+    "academic": "Academic",
+    "heroTitle": "The Lighthouse of Logistics Knowledge",
+    "heroDescription": "Discover and learn logistics and maritime trade terminology with AI-powered explanations",
+    "featureTerms": "Logistics Terms",
+    "featureTermsDesc": "Browse and explore logistics terms with detailed definitions",
+    "featureBooks": "Book Library",
+    "featureBooksDesc": "A curated collection of logistics and supply chain literature",
+    "featureAcademic": "Research Repository",
+    "featureAcademicDesc": "Peer-reviewed research and theses in logistics",
+    "featureAI": "AI Explanations",
+    "featureAIDesc": "Custom explanations in different styles powered by AI"
+  },
+  "Navigation": {
+    "home": "Home",
+    "terms": "Logistics Terms",
+    "books": "Library",
+    "academic": "Research Repository",
+    "admin": "Admin Panel",
+    "submit": "Submit Entry"
+  },
+  "Books": {
+    "title": "Library",
+    "description": "Explore our curated collection of logistics, supply chain, and trade literature.",
+    "noBooks": "No books found",
+    "noBooksDesc": "We couldn't load the library at this time.",
+    "read": "Read",
+    "by": "By"
+  },
+  "Academic": {
+    "title": "Research Repository",
+    "description": "Discover peer-reviewed articles, working papers, and theses in the field of logistics and supply chain.",
+    "noEntries": "No academic entries found",
+    "noEntriesDesc": "The repository is currently empty or unavailable.",
+    "supervisor": "Supervisor"
+  },
+  "Submit": {
+    "title": "Submit Entry",
+    "description": "Share your research, publications, and findings with the MANAR community.",
+    "titleLabel": "Title",
+    "titlePlaceholder": "Research title",
+    "authorLabel": "Author(s)",
+    "authorPlaceholder": "Primary author",
+    "universityLabel": "University/Institution",
+    "universityPlaceholder": "Where was it published?",
+    "yearLabel": "Year",
+    "typeLabel": "Entry Type",
+    "typeThesis": "Thesis",
+    "typePaper": "Research Paper",
+    "typeArticle": "Article",
+    "typeReport": "Report",
+    "tagsLabel": "Tags (comma separated)",
+    "tagsPlaceholder": "logistics, shipping, port management",
+    "documentUrlLabel": "Document URL",
+    "documentUrlPlaceholder": "https://example.com/document.pdf",
+    "abstractLabel": "Abstract / Summary",
+    "abstractPlaceholder": "Provide a brief summary of the research...",
+    "submitButton": "Submit for Review",
+    "submitting": "Submitting...",
+    "successTitle": "Submission Received",
+    "successMessage": "Thank you for contributing to the MANAR platform. Your submission is now pending review by our moderation team.",
+    "submitAnother": "Submit Another Entry",
+    "required": "required"
+  },
+  "TermDetail": {
+    "exampleInContext": "Example in context"
+  },
+  "Explanation": {
+    "title": "AI Explanation",
+    "standard": "Standard",
+    "simplified": "Simplified",
+    "academic": "Academic",
+    "storytelling": "Storytelling",
+    "generate": "Generate",
+    "placeholder": "Click Generate to get an AI-powered explanation tailored to your learning style."
+  },
+  "Search": {
+    "noResults": "No results found"
+  },
+  "Common": {
+    "loading": "Loading...",
+    "error": "An error occurred"
+  }
+}

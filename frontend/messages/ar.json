@@ -1,0 +1,91 @@
+{
+  "Index": {
+    "title": "منار",
+    "subtitle": "منصة المعرفة اللوجستية التعليمية",
+    "searchPlaceholder": "ابحث عن المصطلحات، الكتب، أو الأبحاث...",
+    "searchPrefix": "ابحث في",
+    "terms": "المصطلحات",
+    "books": "الكتب",
+    "academic": "الأبحاث",
+    "heroTitle": "منارة المعرفة اللوجستية",
+    "heroDescription": "اكتشف وتعلم المصطلحات اللوجستية والتجارة البحرية مع شروحات بالذكاء الاصطناعي",
+    "featureTerms": "مصطلحات لوجستية",
+    "featureTermsDesc": "تصفح واستكشف المصطلحات اللوجستية مع تعريفات مفصلة",
+    "featureBooks": "مكتبة الكتب",
+    "featureBooksDesc": "مجموعة منتقاة من كتب اللوجستيات وسلاسل الإمداد",
+    "featureAcademic": "مستودع الأبحاث",
+    "featureAcademicDesc": "أبحاث ورسائل أكاديمية في مجال اللوجستيات",
+    "featureAI": "شرح بالذكاء الاصطناعي",
+    "featureAIDesc": "شروحات مخصصة بأنماط مختلفة باستخدام الذكاء الاصطناعي"
+  },
+  "Navigation": {
+    "home": "الرئيسية",
+    "terms": "المصطلحات اللوجستية",
+    "books": "المكتبة",
+    "academic": "مستودع الأبحاث",
+    "admin": "لوحة الإدارة",
+    "submit": "تقديم إضافة"
+  },
+  "Books": {
+    "title": "المكتبة",
+    "description": "استعرض مجموعتنا المنتقاة من كتب اللوجستيات وسلاسل الإمداد والتجارة",
+    "noBooks": "لا توجد كتب",
+    "noBooksDesc": "لم نتمكن من تحميل المكتبة في الوقت الحالي.",
+    "read": "اقرأ",
+    "by": "بواسطة"
+  },
+  "Academic": {
+    "title": "مستودع الأبحاث",
+    "description": "اكتشف المقالات المحكّمة وأوراق العمل والرسائل العلمية في مجال اللوجستيات وسلاسل الإمداد",
+    "noEntries": "لا توجد أبحاث",
+    "noEntriesDesc": "المستودع فارغ حالياً أو غير متاح.",
+    "supervisor": "المشرف"
+  },
+  "Submit": {
+    "title": "تقديم إضافة",
+    "description": "شارك أبحاثك ومنشوراتك واكتشافاتك مع مجتمع منار",
+    "titleLabel": "العنوان",
+    "titlePlaceholder": "عنوان البحث",
+    "authorLabel": "المؤلف(ين)",
+    "authorPlaceholder": "المؤلف الرئيسي",
+    "universityLabel": "الجامعة/المؤسسة",
+    "universityPlaceholder": "مكان النشر",
+    "yearLabel": "السنة",
+    "typeLabel": "نوع المدخل",
+    "typeThesis": "رسالة علمية",
+    "typePaper": "ورقة بحثية",
+    "typeArticle": "مقال",
+    "typeReport": "تقرير",
+    "tagsLabel": "الوسوم (مفصولة بفاصلة)",
+    "tagsPlaceholder": "لوجستيات، شحن، إدارة الموانئ",
+    "documentUrlLabel": "رابط المستند",
+    "documentUrlPlaceholder": "https://example.com/document.pdf",
+    "abstractLabel": "الملخص",
+    "abstractPlaceholder": "قدم ملخصاً موجزاً عن البحث...",
+    "submitButton": "تقديم للمراجعة",
+    "submitting": "جاري التقديم...",
+    "successTitle": "تم استلام الإضافة",
+    "successMessage": "شكراً لمساهمتك في منصة منار. إضافتك قيد المراجعة من قبل فريق الإشراف.",
+    "submitAnother": "تقديم إضافة أخرى",
+    "required": "مطلوب"
+  },
+  "TermDetail": {
+    "exampleInContext": "مثال في السياق"
+  },
+  "Explanation": {
+    "title": "شرح بالذكاء الاصطناعي",
+    "standard": "قياسي",
+    "simplified": "مبسط",
+    "academic": "أكاديمي",
+    "storytelling": "سردي",
+    "generate": "توليد",
+    "placeholder": "اضغط على توليد للحصول على شرح بالذكاء الاصطناعي مخصص لأسلوب تعلمك."
+  },
+  "Search": {
+    "noResults": "لا توجد نتائج"
+  },
+  "Common": {
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ"
+  }
+}

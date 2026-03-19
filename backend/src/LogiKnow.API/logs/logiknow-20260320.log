@@ -1,1 +1,25 @@
 2026-03-20 00:00:45.198 +02:00 [INF] MANARA API starting on 
+2026-03-20 00:04:36.985 +02:00 [DBG] → GET /api/academic
+2026-03-20 00:04:37.139 +02:00 [DBG] GetAll academic entries: type=null, tag=null, year=null
+2026-03-20 00:04:37.547 +02:00 [DBG] ← GET /api/academic → 200 (567ms)
+2026-03-20 00:04:41.524 +02:00 [DBG] → GET /api/books
+2026-03-20 00:04:41.529 +02:00 [DBG] GetAll books: lang=null, category=null
+2026-03-20 00:04:41.595 +02:00 [DBG] ← GET /api/books → 200 (70ms)
+2026-03-20 00:04:52.411 +02:00 [DBG] → GET /api/academic
+2026-03-20 00:04:52.415 +02:00 [DBG] GetAll academic entries: type=null, tag=null, year=null
+2026-03-20 00:04:52.423 +02:00 [DBG] ← GET /api/academic → 200 (11ms)
+2026-03-20 00:05:02.539 +02:00 [DBG] → GET /api/arenavideos
+2026-03-20 00:05:02.549 +02:00 [DBG] GetAll arena videos: page=1, size=10
+2026-03-20 00:05:02.675 +02:00 [DBG] ← GET /api/arenavideos → 200 (135ms)
+2026-03-20 00:05:02.677 +02:00 [DBG] → GET /api/arenavideos
+2026-03-20 00:05:02.682 +02:00 [DBG] GetAll arena videos: page=1, size=10
+2026-03-20 00:05:02.742 +02:00 [DBG] ← GET /api/arenavideos → 200 (64ms)
+2026-03-20 00:14:49.986 +02:00 [DBG] → GET /api/books
+2026-03-20 00:14:49.989 +02:00 [DBG] GetAll books: lang=null, category=null
+2026-03-20 00:14:50.039 +02:00 [DBG] ← GET /api/books → 200 (52ms)
+2026-03-20 00:15:01.231 +02:00 [DBG] → GET /api/academic
+2026-03-20 00:15:01.231 +02:00 [DBG] GetAll academic entries: type=null, tag=null, year=null
+2026-03-20 00:15:01.240 +02:00 [DBG] ← GET /api/academic → 200 (9ms)
+2026-03-20 00:15:11.980 +02:00 [DBG] → GET /api/books
+2026-03-20 00:15:11.981 +02:00 [DBG] GetAll books: lang=null, category=null
+2026-03-20 00:15:11.990 +02:00 [DBG] ← GET /api/books → 200 (9ms)

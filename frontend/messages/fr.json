@@ -1,0 +1,91 @@
+{
+  "Index": {
+    "title": "MANAR",
+    "subtitle": "Application Web Éducative en Logistique",
+    "searchPlaceholder": "Rechercher des termes, livres ou travaux académiques...",
+    "searchPrefix": "Rechercher dans",
+    "terms": "Termes",
+    "books": "Livres",
+    "academic": "Académique",
+    "heroTitle": "Le Phare de la Connaissance Logistique",
+    "heroDescription": "Découvrez et apprenez la terminologie logistique et du commerce maritime avec des explications IA",
+    "featureTerms": "Termes Logistiques",
+    "featureTermsDesc": "Parcourez et explorez les termes logistiques avec des définitions détaillées",
+    "featureBooks": "Bibliothèque",
+    "featureBooksDesc": "Une collection de littérature en logistique et chaîne d'approvisionnement",
+    "featureAcademic": "Dépôt de Recherche",
+    "featureAcademicDesc": "Recherches et thèses évaluées par des pairs en logistique",
+    "featureAI": "Explications IA",
+    "featureAIDesc": "Explications personnalisées dans différents styles propulsées par l'IA"
+  },
+  "Navigation": {
+    "home": "Accueil",
+    "terms": "Termes Logistiques",
+    "books": "Bibliothèque",
+    "academic": "Dépôt de Recherche",
+    "admin": "Panneau Admin",
+    "submit": "Soumettre"
+  },
+  "Books": {
+    "title": "Bibliothèque",
+    "description": "Explorez notre collection de littérature en logistique, chaîne d'approvisionnement et commerce.",
+    "noBooks": "Aucun livre trouvé",
+    "noBooksDesc": "Nous n'avons pas pu charger la bibliothèque pour le moment.",
+    "read": "Lire",
+    "by": "Par"
+  },
+  "Academic": {
+    "title": "Dépôt de Recherche",
+    "description": "Découvrez des articles évalués par des pairs, des documents de travail et des thèses en logistique.",
+    "noEntries": "Aucune entrée académique trouvée",
+    "noEntriesDesc": "Le dépôt est actuellement vide ou indisponible.",
+    "supervisor": "Superviseur"
+  },
+  "Submit": {
+    "title": "Soumettre une Entrée",
+    "description": "Partagez vos recherches, publications et découvertes avec la communauté MANAR.",
+    "titleLabel": "Titre",
+    "titlePlaceholder": "Titre de la recherche",
+    "authorLabel": "Auteur(s)",
+    "authorPlaceholder": "Auteur principal",
+    "universityLabel": "Université/Institution",
+    "universityPlaceholder": "Où a-t-il été publié?",
+    "yearLabel": "Année",
+    "typeLabel": "Type d'entrée",
+    "typeThesis": "Thèse",
+    "typePaper": "Article de recherche",
+    "typeArticle": "Article",
+    "typeReport": "Rapport",
+    "tagsLabel": "Tags (séparés par des virgules)",
+    "tagsPlaceholder": "logistique, expédition, gestion portuaire",
+    "documentUrlLabel": "URL du document",
+    "documentUrlPlaceholder": "https://example.com/document.pdf",
+    "abstractLabel": "Résumé",
+    "abstractPlaceholder": "Fournissez un bref résumé de la recherche...",
+    "submitButton": "Soumettre pour examen",
+    "submitting": "Soumission en cours...",
+    "successTitle": "Soumission reçue",
+    "successMessage": "Merci pour votre contribution à la plateforme MANAR. Votre soumission est en attente d'examen.",
+    "submitAnother": "Soumettre une autre entrée",
+    "required": "requis"
+  },
+  "TermDetail": {
+    "exampleInContext": "Exemple en contexte"
+  },
+  "Explanation": {
+    "title": "Explication IA",
+    "standard": "Standard",
+    "simplified": "Simplifié",
+    "academic": "Académique",
+    "storytelling": "Narratif",
+    "generate": "Générer",
+    "placeholder": "Cliquez sur Générer pour obtenir une explication IA adaptée à votre style d'apprentissage."
+  },
+  "Search": {
+    "noResults": "Aucun résultat trouvé"
+  },
+  "Common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue"
+  }
+}
