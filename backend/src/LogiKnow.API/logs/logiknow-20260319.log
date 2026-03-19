@@ -112,3 +112,326 @@ Error Number:4060,State:1,Class:11
    --- End of inner exception stack trace ---
    at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
    at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-03-19 16:05:29.792 +02:00 [INF] LogiKnow API starting on 
+2026-03-19 17:19:36.012 +02:00 [DBG] → GET /
+2026-03-19 17:19:36.124 +02:00 [DBG] ← GET / → 307 (141ms)
+2026-03-19 17:19:42.679 +02:00 [DBG] → GET /
+2026-03-19 17:19:44.039 +02:00 [DBG] ← GET / → 404 (1359ms)
+2026-03-19 17:19:45.750 +02:00 [DBG] → GET /
+2026-03-19 17:19:45.752 +02:00 [DBG] ← GET / → 404 (1ms)
+2026-03-19 17:37:08.091 +02:00 [DBG] → GET /api/books
+2026-03-19 17:37:08.101 +02:00 [DBG] ← GET /api/books → 307 (10ms)
+2026-03-19 17:37:11.299 +02:00 [DBG] → GET /api/academic
+2026-03-19 17:37:11.299 +02:00 [DBG] ← GET /api/academic → 307 (0ms)
+2026-03-19 17:37:49.604 +02:00 [DBG] → GET /api/books
+2026-03-19 17:37:49.605 +02:00 [DBG] ← GET /api/books → 307 (0ms)
+2026-03-19 17:37:55.215 +02:00 [DBG] → GET /api/academic
+2026-03-19 17:37:55.215 +02:00 [DBG] ← GET /api/academic → 307 (0ms)
+2026-03-19 18:08:30.869 +02:00 [DBG] → GET /api/academic
+2026-03-19 18:08:30.873 +02:00 [DBG] ← GET /api/academic → 307 (4ms)
+2026-03-19 18:08:44.041 +02:00 [DBG] → GET /api/books
+2026-03-19 18:08:44.044 +02:00 [DBG] ← GET /api/books → 307 (2ms)
+2026-03-19 18:30:14.870 +02:00 [DBG] → GET /api/academic
+2026-03-19 18:30:14.871 +02:00 [DBG] ← GET /api/academic → 307 (0ms)
+2026-03-19 19:06:10.110 +02:00 [DBG] → GET /api/academic
+2026-03-19 19:06:10.133 +02:00 [DBG] ← GET /api/academic → 307 (27ms)
+2026-03-19 19:06:17.668 +02:00 [DBG] → GET /api/books
+2026-03-19 19:06:17.668 +02:00 [DBG] ← GET /api/books → 307 (0ms)
+2026-03-19 19:06:19.227 +02:00 [DBG] → GET /api/academic
+2026-03-19 19:06:19.227 +02:00 [DBG] ← GET /api/academic → 307 (0ms)
+2026-03-19 19:20:48.333 +02:00 [DBG] → GET /swagger
+2026-03-19 19:20:48.357 +02:00 [DBG] ← GET /swagger → 301 (23ms)
+2026-03-19 19:20:48.367 +02:00 [DBG] → GET /swagger/index.html
+2026-03-19 19:20:48.675 +02:00 [DBG] ← GET /swagger/index.html → 200 (308ms)
+2026-03-19 19:20:48.703 +02:00 [DBG] → GET /swagger/swagger-ui.css
+2026-03-19 19:20:48.706 +02:00 [DBG] → GET /swagger/swagger-ui-bundle.js
+2026-03-19 19:20:48.706 +02:00 [DBG] → GET /swagger/swagger-ui-standalone-preset.js
+2026-03-19 19:20:48.759 +02:00 [DBG] ← GET /swagger/swagger-ui.css → 200 (55ms)
+2026-03-19 19:20:48.764 +02:00 [DBG] ← GET /swagger/swagger-ui-standalone-preset.js → 200 (57ms)
+2026-03-19 19:20:48.781 +02:00 [DBG] ← GET /swagger/swagger-ui-bundle.js → 200 (74ms)
+2026-03-19 19:20:49.179 +02:00 [DBG] → GET /swagger/v1/swagger.json
+2026-03-19 19:20:49.212 +02:00 [DBG] → GET /swagger/favicon-32x32.png
+2026-03-19 19:20:49.212 +02:00 [DBG] ← GET /swagger/favicon-32x32.png → 200 (0ms)
+2026-03-19 19:20:49.451 +02:00 [DBG] ← GET /swagger/v1/swagger.json → 200 (271ms)
+2026-03-19 19:21:30.656 +02:00 [DBG] → GET /api/books
+2026-03-19 19:21:30.656 +02:00 [DBG] ← GET /api/books → 307 (0ms)
+2026-03-19 19:21:31.859 +02:00 [DBG] → GET /api/academic
+2026-03-19 19:21:31.860 +02:00 [DBG] ← GET /api/academic → 307 (0ms)
+2026-03-19 19:23:10.965 +02:00 [DBG] → GET /api/books
+2026-03-19 19:23:10.966 +02:00 [DBG] ← GET /api/books → 307 (0ms)
+2026-03-19 19:23:17.352 +02:00 [DBG] → GET /api/books
+2026-03-19 19:23:17.352 +02:00 [DBG] ← GET /api/books → 307 (0ms)
+2026-03-19 19:23:23.031 +02:00 [DBG] → GET /api/books
+2026-03-19 19:23:23.031 +02:00 [DBG] ← GET /api/books → 307 (0ms)
+2026-03-19 19:24:39.416 +02:00 [DBG] → GET /api/books
+2026-03-19 19:24:39.417 +02:00 [DBG] ← GET /api/books → 307 (0ms)
+2026-03-19 19:24:40.916 +02:00 [DBG] → GET /api/academic
+2026-03-19 19:24:40.917 +02:00 [DBG] ← GET /api/academic → 307 (0ms)
+2026-03-19 19:24:47.561 +02:00 [DBG] → GET /api/books
+2026-03-19 19:24:47.562 +02:00 [DBG] ← GET /api/books → 307 (0ms)
+2026-03-19 19:25:24.950 +02:00 [DBG] → GET /api/books
+2026-03-19 19:25:24.951 +02:00 [DBG] ← GET /api/books → 307 (0ms)
+2026-03-19 19:25:26.198 +02:00 [DBG] → GET /api/academic
+2026-03-19 19:25:26.201 +02:00 [DBG] ← GET /api/academic → 307 (2ms)
+2026-03-19 21:27:58.094 +02:00 [DBG] → GET /api/books
+2026-03-19 21:27:58.119 +02:00 [DBG] ← GET /api/books → 307 (28ms)
+2026-03-19 22:19:40.706 +02:00 [INF] MANARA API starting on 
+2026-03-19 23:01:38.632 +02:00 [DBG] → GET /api/arenavideos
+2026-03-19 23:01:38.854 +02:00 [DBG] ← GET /api/arenavideos → 307 (255ms)
+2026-03-19 23:01:49.632 +02:00 [DBG] → GET /api/arenavideos
+2026-03-19 23:01:49.634 +02:00 [DBG] ← GET /api/arenavideos → 307 (1ms)
+2026-03-19 23:02:09.428 +02:00 [DBG] → GET /api/books
+2026-03-19 23:02:09.429 +02:00 [DBG] ← GET /api/books → 307 (1ms)
+2026-03-19 23:02:10.092 +02:00 [DBG] → GET /api/books
+2026-03-19 23:02:10.093 +02:00 [DBG] ← GET /api/books → 307 (0ms)
+2026-03-19 23:02:11.774 +02:00 [DBG] → GET /api/arenavideos
+2026-03-19 23:02:11.775 +02:00 [DBG] ← GET /api/arenavideos → 307 (0ms)
+2026-03-19 23:02:11.782 +02:00 [DBG] → GET /api/arenavideos
+2026-03-19 23:02:11.783 +02:00 [DBG] ← GET /api/arenavideos → 307 (0ms)
+2026-03-19 23:02:15.360 +02:00 [DBG] → GET /api/books
+2026-03-19 23:02:15.360 +02:00 [DBG] ← GET /api/books → 307 (0ms)
+2026-03-19 23:02:18.138 +02:00 [DBG] → GET /api/academic
+2026-03-19 23:02:18.138 +02:00 [DBG] ← GET /api/academic → 307 (0ms)
+2026-03-19 23:07:07.766 +02:00 [DBG] → GET /api/arenavideos
+2026-03-19 23:07:07.767 +02:00 [DBG] ← GET /api/arenavideos → 307 (1ms)
+2026-03-19 23:07:07.769 +02:00 [DBG] → GET /api/arenavideos
+2026-03-19 23:07:07.769 +02:00 [DBG] ← GET /api/arenavideos → 307 (0ms)
+2026-03-19 23:45:38.199 +02:00 [DBG] → GET /api/arenavideos
+2026-03-19 23:45:38.250 +02:00 [DBG] ← GET /api/arenavideos → 307 (62ms)
+2026-03-19 23:46:25.330 +02:00 [DBG] → GET /api/arenavideos
+2026-03-19 23:46:25.332 +02:00 [DBG] ← GET /api/arenavideos → 307 (1ms)
+2026-03-19 23:49:38.394 +02:00 [INF] MANARA API starting on 
+2026-03-19 23:52:31.473 +02:00 [DBG] → GET /api/arenavideos
+2026-03-19 23:52:34.930 +02:00 [DBG] GetAll arena videos: page=1, size=10
+2026-03-19 23:52:35.200 +02:00 [ERR] Failed executing DbCommand (175ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ArenaVideos] AS [a]
+WHERE [a].[IsPublished] = CAST(1 AS bit)
+2026-03-19 23:52:35.236 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'LogiKnow.Infrastructure.Persistence.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ArenaVideos'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:b92315a8-c3ca-4a3f-8e0b-cd3a7a70f59d
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ArenaVideos'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:b92315a8-c3ca-4a3f-8e0b-cd3a7a70f59d
+Error Number:208,State:1,Class:16
+2026-03-19 23:52:35.256 +02:00 [ERR] Unhandled exception
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ArenaVideos'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at LogiKnow.Infrastructure.Persistence.Repositories.ArenaVideoRepository.GetAllAsync(Int32 page, Int32 size, CancellationToken ct) in D:\ATD\Downloads\logi\backend\src\LogiKnow.Infrastructure\Persistence\Repositories\ArenaVideoRepository.cs:line 23
+   at LogiKnow.Application.ArenaVideos.Queries.GetArenaVideosHandler.Handle(GetArenaVideosQuery request, CancellationToken ct) in D:\ATD\Downloads\logi\backend\src\LogiKnow.Application\ArenaVideos\Queries\GetArenaVideosQuery.cs:line 22
+   at LogiKnow.API.Controllers.ArenaVideosController.GetAll(Int32 page, Int32 size, CancellationToken ct) in D:\ATD\Downloads\logi\backend\src\LogiKnow.API\Controllers\ArenaVideosController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at LogiKnow.API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\ATD\Downloads\logi\backend\src\LogiKnow.API\Middleware\RequestLoggingMiddleware.cs:line 21
+   at LogiKnow.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\ATD\Downloads\logi\backend\src\LogiKnow.API\Middleware\ExceptionMiddleware.cs:line 22
+ClientConnectionId:b92315a8-c3ca-4a3f-8e0b-cd3a7a70f59d
+Error Number:208,State:1,Class:16
+2026-03-19 23:52:38.036 +02:00 [DBG] → GET /api/books
+2026-03-19 23:52:38.041 +02:00 [DBG] GetAll books: lang=null, category=null
+2026-03-19 23:52:38.335 +02:00 [DBG] ← GET /api/books → 200 (299ms)
+2026-03-19 23:52:41.254 +02:00 [DBG] → GET /api/academic
+2026-03-19 23:52:41.262 +02:00 [DBG] GetAll academic entries: type=null, tag=null, year=null
+2026-03-19 23:52:41.441 +02:00 [DBG] ← GET /api/academic → 200 (186ms)
+2026-03-19 23:52:58.183 +02:00 [DBG] → GET /api/arenavideos
+2026-03-19 23:52:58.184 +02:00 [DBG] GetAll arena videos: page=1, size=10
+2026-03-19 23:52:58.201 +02:00 [ERR] Failed executing DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ArenaVideos] AS [a]
+WHERE [a].[IsPublished] = CAST(1 AS bit)
+2026-03-19 23:52:58.203 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'LogiKnow.Infrastructure.Persistence.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ArenaVideos'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:b92315a8-c3ca-4a3f-8e0b-cd3a7a70f59d
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ArenaVideos'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:b92315a8-c3ca-4a3f-8e0b-cd3a7a70f59d
+Error Number:208,State:1,Class:16
+2026-03-19 23:52:58.210 +02:00 [ERR] Unhandled exception
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ArenaVideos'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at LogiKnow.Infrastructure.Persistence.Repositories.ArenaVideoRepository.GetAllAsync(Int32 page, Int32 size, CancellationToken ct) in D:\ATD\Downloads\logi\backend\src\LogiKnow.Infrastructure\Persistence\Repositories\ArenaVideoRepository.cs:line 23
+   at LogiKnow.Application.ArenaVideos.Queries.GetArenaVideosHandler.Handle(GetArenaVideosQuery request, CancellationToken ct) in D:\ATD\Downloads\logi\backend\src\LogiKnow.Application\ArenaVideos\Queries\GetArenaVideosQuery.cs:line 22
+   at LogiKnow.API.Controllers.ArenaVideosController.GetAll(Int32 page, Int32 size, CancellationToken ct) in D:\ATD\Downloads\logi\backend\src\LogiKnow.API\Controllers\ArenaVideosController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at LogiKnow.API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\ATD\Downloads\logi\backend\src\LogiKnow.API\Middleware\RequestLoggingMiddleware.cs:line 21
+   at LogiKnow.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\ATD\Downloads\logi\backend\src\LogiKnow.API\Middleware\ExceptionMiddleware.cs:line 22
+ClientConnectionId:b92315a8-c3ca-4a3f-8e0b-cd3a7a70f59d
+Error Number:208,State:1,Class:16
+2026-03-19 23:52:58.220 +02:00 [DBG] → GET /api/arenavideos
+2026-03-19 23:52:58.223 +02:00 [DBG] GetAll arena videos: page=1, size=10
+2026-03-19 23:52:58.228 +02:00 [ERR] Failed executing DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ArenaVideos] AS [a]
+WHERE [a].[IsPublished] = CAST(1 AS bit)
+2026-03-19 23:52:58.230 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'LogiKnow.Infrastructure.Persistence.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ArenaVideos'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:b92315a8-c3ca-4a3f-8e0b-cd3a7a70f59d
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ArenaVideos'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:b92315a8-c3ca-4a3f-8e0b-cd3a7a70f59d
+Error Number:208,State:1,Class:16
+2026-03-19 23:52:58.234 +02:00 [ERR] Unhandled exception
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ArenaVideos'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at LogiKnow.Infrastructure.Persistence.Repositories.ArenaVideoRepository.GetAllAsync(Int32 page, Int32 size, CancellationToken ct) in D:\ATD\Downloads\logi\backend\src\LogiKnow.Infrastructure\Persistence\Repositories\ArenaVideoRepository.cs:line 23
+   at LogiKnow.Application.ArenaVideos.Queries.GetArenaVideosHandler.Handle(GetArenaVideosQuery request, CancellationToken ct) in D:\ATD\Downloads\logi\backend\src\LogiKnow.Application\ArenaVideos\Queries\GetArenaVideosQuery.cs:line 22
+   at LogiKnow.API.Controllers.ArenaVideosController.GetAll(Int32 page, Int32 size, CancellationToken ct) in D:\ATD\Downloads\logi\backend\src\LogiKnow.API\Controllers\ArenaVideosController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at LogiKnow.API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\ATD\Downloads\logi\backend\src\LogiKnow.API\Middleware\RequestLoggingMiddleware.cs:line 21
+   at LogiKnow.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\ATD\Downloads\logi\backend\src\LogiKnow.API\Middleware\ExceptionMiddleware.cs:line 22
+ClientConnectionId:b92315a8-c3ca-4a3f-8e0b-cd3a7a70f59d
+Error Number:208,State:1,Class:16

@@ -52,6 +52,7 @@ public static class DependencyInjection
         services.AddScoped<IBookRepository, BookRepository>();
         services.AddScoped<IAcademicRepository, AcademicRepository>();
         services.AddScoped<ISubmissionRepository, SubmissionRepository>();
+        services.AddScoped<IArenaVideoRepository, ArenaVideoRepository>();
 
         // Services
         services.AddScoped<ISearchService, MockSearchService>();

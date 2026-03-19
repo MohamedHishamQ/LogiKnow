@@ -14,6 +14,7 @@ public class AppDbContext : IdentityDbContext<User>
     public DbSet<AcademicEntry> AcademicEntries => Set<AcademicEntry>();
     public DbSet<Submission> Submissions => Set<Submission>();
     public DbSet<Tag> Tags => Set<Tag>();
+    public DbSet<ArenaVideo> ArenaVideos => Set<ArenaVideo>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -85,6 +86,43 @@ public class AppDbContext : IdentityDbContext<User>
                 Abstract = "This paper explores how artificial intelligence is reshaping predictive analytics in global supply chains.",
                 Type = LogiKnow.Domain.Enums.AcademicEntryType.Thesis,
                 Status = LogiKnow.Domain.Enums.SubmissionStatus.Approved,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            }
+        );
+
+        // Seed Arena Videos
+        builder.Entity<ArenaVideo>().HasData(
+            new ArenaVideo {
+                Id = Guid.Parse("66666666-6666-6666-6666-666666666666"),
+                Title = "Representing the FOB Term - Funny Skit",
+                Url = "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                Author = "Ahmed - علوم النقل البحري",
+                Views = "1.2M",
+                Platform = LogiKnow.Domain.Enums.VideoPlatform.YouTube,
+                IsPublished = true,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new ArenaVideo {
+                Id = Guid.Parse("77777777-7777-7777-7777-777777777777"),
+                Title = "Oil Prices Plummeting: Impact on Tanker Rates",
+                Url = "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                Author = "Sarah Logistics",
+                Views = "850K",
+                Platform = LogiKnow.Domain.Enums.VideoPlatform.YouTube,
+                IsPublished = true,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new ArenaVideo {
+                Id = Guid.Parse("88888888-8888-8888-8888-888888888888"),
+                Title = "Managing the Port Simulation High Score",
+                Url = "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                Author = "Port Captain Sims",
+                Views = "2.1M",
+                Platform = LogiKnow.Domain.Enums.VideoPlatform.YouTube,
+                IsPublished = true,
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow
             }

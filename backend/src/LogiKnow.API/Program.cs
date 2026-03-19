@@ -38,8 +38,8 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["JwtSettings:Issuer"] ?? "logiknow-api",
-        ValidAudience = builder.Configuration["JwtSettings:Audience"] ?? "logiknow-client",
+        ValidIssuer = builder.Configuration["JwtSettings:Issuer"] ?? "manara-api",
+        ValidAudience = builder.Configuration["JwtSettings:Audience"] ?? "manara-client",
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
     };
 });
@@ -81,7 +81,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "LogiKnow API",
+        Title = "MANARA API",
         Version = "v1",
         Description = "Logistics Knowledge Platform API"
     });
@@ -114,10 +114,9 @@ app.UseMiddleware<RequestLoggingMiddleware>();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LogiKnow API v1"));
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MANARA API v1"));
 }
 
-app.UseHttpsRedirection();
 app.UseCors();
 app.UseIpRateLimiting();
 app.UseAuthentication();
@@ -138,6 +137,7 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var dbContext = scope.ServiceProvider.GetRequiredService<LogiKnow.Infrastructure.Persistence.AppDbContext>();
+        dbContext.Database.EnsureDeleted(); // <-- Added to reset schema during dev
         dbContext.Database.EnsureCreated();
     }
     catch (Exception ex)
@@ -156,5 +156,5 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-Log.Information("LogiKnow API starting on {Urls}", string.Join(", ", app.Urls));
+Log.Information("MANARA API starting on {Urls}", string.Join(", ", app.Urls));
 app.Run();

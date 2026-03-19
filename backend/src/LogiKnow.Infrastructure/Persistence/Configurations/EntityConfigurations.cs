@@ -113,3 +113,19 @@ public class TagConfiguration : IEntityTypeConfiguration<Tag>
         builder.HasIndex(e => e.Name).IsUnique();
     }
 }
+
+public class ArenaVideoConfiguration : IEntityTypeConfiguration<ArenaVideo>
+{
+    public void Configure(EntityTypeBuilder<ArenaVideo> builder)
+    {
+        builder.HasKey(e => e.Id);
+        builder.Property(e => e.Title).IsRequired().HasMaxLength(500);
+        builder.Property(e => e.Url).IsRequired().HasMaxLength(1000);
+        builder.Property(e => e.Author).IsRequired().HasMaxLength(200);
+        builder.Property(e => e.Description).HasMaxLength(2000);
+        builder.Property(e => e.ThumbnailUrl).HasMaxLength(1000);
+        builder.Property(e => e.Views).HasMaxLength(50);
+        builder.HasIndex(e => e.IsPublished);
+        builder.HasIndex(e => e.Platform);
+    }
+}

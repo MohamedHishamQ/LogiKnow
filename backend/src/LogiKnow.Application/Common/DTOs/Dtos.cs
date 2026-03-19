@@ -103,6 +103,33 @@ public class AddBookRequest
     public bool IsPublished { get; set; } = false;
 }
 
+// ===== Arena Video DTOs =====
+public class ArenaVideoDto
+{
+    public Guid Id { get; set; }
+    public string Title { get; set; } = string.Empty;
+    public string Url { get; set; } = string.Empty;
+    public string Author { get; set; } = string.Empty;
+    public string? Description { get; set; }
+    public string? ThumbnailUrl { get; set; }
+    public string Platform { get; set; } = "YouTube";
+    public string Views { get; set; } = "0";
+    public bool IsPublished { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime UpdatedAt { get; set; }
+}
+
+public class CreateArenaVideoRequest
+{
+    public string Title { get; set; } = string.Empty;
+    public string Url { get; set; } = string.Empty;
+    public string Author { get; set; } = string.Empty;
+    public string? Description { get; set; }
+    public string? ThumbnailUrl { get; set; }
+    public string Platform { get; set; } = "YouTube";
+    public bool IsPublished { get; set; } = true;
+}
+
 // ===== Academic DTOs =====
 public class AcademicEntryDto
 {
