@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aD8GR8FRANOG9drJXpySWD6Gyo1pm7OrFb/5GuHmdh5jOdd26Pp2rmf85KRHQUndgYYr/2wGDKa+QYLOIKzOZA==",
+  "dgSpecHash": "NOhNTzvFabvxB6m8nq8NDf5TOcmpfQTVch4dpFBVoKI1P7kYc0Aw3+WxxoqKFXq67IBqPyk0n3wJf/vqZ7FGLQ==",
   "success": true,
-  "projectFilePath": "D:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Application\\LogiKnow.Application.csproj",
+  "projectFilePath": "d:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Application\\LogiKnow.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ATD\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\ATD\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

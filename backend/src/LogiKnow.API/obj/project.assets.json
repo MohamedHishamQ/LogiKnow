@@ -3708,14 +3708,14 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.API\\LogiKnow.API.csproj",
+      "projectUniqueName": "d:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.API\\LogiKnow.API.csproj",
       "projectName": "LogiKnow.API",
-      "projectPath": "D:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.API\\LogiKnow.API.csproj",
+      "projectPath": "d:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.API\\LogiKnow.API.csproj",
       "packagesPath": "C:\\Users\\ATD\\.nuget\\packages\\",
-      "outputPath": "D:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.API\\obj\\",
+      "outputPath": "d:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "D:\\ATD\\Downloads\\logi\\backend\\NuGet.Config",
+        "d:\\ATD\\Downloads\\logi\\backend\\NuGet.Config",
         "C:\\Users\\ATD\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -3730,11 +3730,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Application\\LogiKnow.Application.csproj": {
-              "projectPath": "D:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Application\\LogiKnow.Application.csproj"
+            "d:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Application\\LogiKnow.Application.csproj": {
+              "projectPath": "d:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Application\\LogiKnow.Application.csproj"
             },
-            "D:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Infrastructure\\LogiKnow.Infrastructure.csproj": {
-              "projectPath": "D:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Infrastructure\\LogiKnow.Infrastructure.csproj"
+            "d:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Infrastructure\\LogiKnow.Infrastructure.csproj": {
+              "projectPath": "d:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Infrastructure\\LogiKnow.Infrastructure.csproj"
             }
           }
         }

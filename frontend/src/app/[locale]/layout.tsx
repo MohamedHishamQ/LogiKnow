@@ -5,6 +5,8 @@ import {routing} from '@/i18n/routing';
 import TopNav from '@/components/TopNav';
 import '../globals.css';
 
+import { AuthProvider } from '@/components/AuthProvider';
+
 export default async function LocaleLayout({
   children,
   params
@@ -33,10 +35,12 @@ export default async function LocaleLayout({
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <TopNav />
-          <main className="min-h-screen">
-            {children}
-          </main>
+          <AuthProvider>
+            <TopNav />
+            <main className="min-h-screen">
+              {children}
+            </main>
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>

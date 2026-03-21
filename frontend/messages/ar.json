@@ -88,5 +88,22 @@
     "loading": "جاري التحميل...",
     "error": "حدث خطأ",
     "read": "اقرأ"
+  },
+  "Auth": {
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "logout": "تسجيل الخروج",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "fullName": "الاسم الكامل",
+    "preferredLanguage": "اللغة المفضلة",
+    "loginText": "مرحباً بك مجدداً في منار",
+    "registerText": "انضم إلى مجتمع اللوجستيات",
+    "noAccount": "ليس لديك حساب؟",
+    "haveAccount": "لديك حساب بالفعل؟",
+    "loginAction": "دخول",
+    "registerAction": "تسجيل حساب جديد",
+    "loggingIn": "جاري الدخول...",
+    "registering": "جاري إنشاء الحساب..."
   }
 }

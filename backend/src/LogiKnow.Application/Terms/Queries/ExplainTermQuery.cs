@@ -1,6 +1,7 @@
 using LogiKnow.Application.Common.DTOs;
 using LogiKnow.Domain.Interfaces;
 using MediatR;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace LogiKnow.Application.Terms.Queries;
 
@@ -11,11 +12,13 @@ public class ExplainTermHandler : IRequestHandler<ExplainTermQuery, ExplanationR
 {
     private readonly ITermRepository _repo;
     private readonly IAIService _aiService;
+    private readonly IMemoryCache _cache;
 
-    public ExplainTermHandler(ITermRepository repo, IAIService aiService)
+    public ExplainTermHandler(ITermRepository repo, IAIService aiService, IMemoryCache cache)
     {
         _repo = repo;
         _aiService = aiService;
+        _cache = cache;
     }
 
     public async Task<ExplanationResponse> Handle(ExplainTermQuery request, CancellationToken ct)
@@ -24,13 +27,20 @@ public class ExplainTermHandler : IRequestHandler<ExplainTermQuery, ExplanationR
         if (term is null)
             throw new KeyNotFoundException($"Term with ID {request.Id} not found.");
 
-        var explanation = await _aiService.GenerateExplanationAsync(
-            term.NameEn, term.NameAr, term.Category,
-            term.DefinitionEn, request.Lang, request.Style, ct);
+        var cacheKey = $"explanation_{request.Id}_{request.Lang}_{request.Style}";
+
+        if (!_cache.TryGetValue(cacheKey, out string? explanation))
+        {
+            explanation = await _aiService.GenerateExplanationAsync(
+                term.NameEn, term.NameAr, term.Category,
+                term.DefinitionEn, request.Lang, request.Style, ct);
+
+            _cache.Set(cacheKey, explanation, TimeSpan.FromHours(24));
+        }
 
         return new ExplanationResponse
         {
-            Explanation = explanation,
+            Explanation = explanation ?? string.Empty,
             Language = request.Lang,
             Style = request.Style
         };

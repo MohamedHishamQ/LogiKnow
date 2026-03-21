@@ -86,6 +86,24 @@
   },
   "Common": {
     "loading": "Chargement...",
-    "error": "Une erreur est survenue"
+    "error": "Une erreur s'est produite",
+    "read": "Lire"
+  },
+  "Auth": {
+    "login": "Se connecter",
+    "register": "Créer un compte",
+    "logout": "Déconnexion",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "fullName": "Nom complet",
+    "preferredLanguage": "Langue préférée",
+    "loginText": "De retour sur MANAR",
+    "registerText": "Rejoignez la communauté logistique",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "haveAccount": "Vous avez déjà un compte ?",
+    "loginAction": "Connexion",
+    "registerAction": "Inscription",
+    "loggingIn": "Connexion en cours...",
+    "registering": "Création du compte..."
   }
 }

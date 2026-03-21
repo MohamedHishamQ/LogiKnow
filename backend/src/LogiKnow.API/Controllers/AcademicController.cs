@@ -43,7 +43,7 @@ public class AcademicController : ControllerBase
         return Ok(); // Delegate to mediator
     }
 
-    // [Authorize]
+    [Authorize]
     [HttpPost("submit")]
     public async Task<IActionResult> Submit([FromBody] SubmitAcademicEntryRequest request, CancellationToken ct = default)
     {

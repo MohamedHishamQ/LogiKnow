@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Domain\\LogiKnow.Domain.csproj": {}
+    "d:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Domain\\LogiKnow.Domain.csproj": {}
   },
   "projects": {
-    "D:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Domain\\LogiKnow.Domain.csproj": {
+    "d:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Domain\\LogiKnow.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Domain\\LogiKnow.Domain.csproj",
+        "projectUniqueName": "d:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Domain\\LogiKnow.Domain.csproj",
         "projectName": "LogiKnow.Domain",
-        "projectPath": "D:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Domain\\LogiKnow.Domain.csproj",
+        "projectPath": "d:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Domain\\LogiKnow.Domain.csproj",
         "packagesPath": "C:\\Users\\ATD\\.nuget\\packages\\",
-        "outputPath": "D:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Domain\\obj\\",
+        "outputPath": "d:\\ATD\\Downloads\\logi\\backend\\src\\LogiKnow.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "D:\\ATD\\Downloads\\logi\\backend\\NuGet.Config",
+          "d:\\ATD\\Downloads\\logi\\backend\\NuGet.Config",
           "C:\\Users\\ATD\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"

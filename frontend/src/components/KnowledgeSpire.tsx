@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Book, Library, PlaySquare, Flame } from 'lucide-react';
 import { Link } from '@/i18n/routing';
+import SearchBar from '@/components/SearchBar';
 
 export default function KnowledgeSpire() {
   const t = useTranslations('Index');
@@ -36,16 +37,7 @@ export default function KnowledgeSpire() {
       </div>
 
       <div className="w-full max-w-xl z-10 px-4 mt-8 flex flex-col gap-6">
-        <div className="relative group">
-          <div className="absolute inset-y-0 ltr:left-0 rtl:right-0 ltr:pl-5 rtl:pr-5 flex items-center pointer-events-none">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/40 group-focus-within:text-manar-cyan transition-colors"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          </div>
-          <input 
-            type="text" 
-            placeholder={t('searchPlaceholder') || "Explore maritime terms, library books, and logistics concepts..."} 
-            className="w-full glass-panel-heavy text-white placeholder:text-white/40 rounded-full py-5 ltr:pl-14 rtl:pr-14 ltr:pr-6 rtl:pl-6 focus:outline-none focus:ring-2 focus:ring-manar-cyan/50 font-medium text-lg shadow-xl"
-          />
-        </div>
+        <SearchBar />
         
         <div className="flex flex-wrap gap-4 justify-center">
           <Link href="/books">

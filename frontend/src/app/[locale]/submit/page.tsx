@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { apiClient } from '@/api/client';
 import { Loader2, CheckCircle2 } from 'lucide-react';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 export default function SubmitPage() {
   const t = useTranslations('Submit');
@@ -67,87 +68,89 @@ export default function SubmitPage() {
   }
 
   return (
-    <div className="min-h-screen manar-page-bg p-8 py-12">
-      <div className="max-w-3xl mx-auto space-y-8">
-        <header className="mb-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-black mb-4 text-white tracking-tight">{t('title')}</h1>
-          <p className="text-lg text-blue-200/70">
-            {t('description')}
-          </p>
-        </header>
+    <ProtectedRoute>
+      <div className="min-h-screen manar-page-bg p-8 py-12">
+        <div className="max-w-3xl mx-auto space-y-8">
+          <header className="mb-10 text-center">
+            <h1 className="text-4xl md:text-5xl font-black mb-4 text-white tracking-tight">{t('title')}</h1>
+            <p className="text-lg text-blue-200/70">
+              {t('description')}
+            </p>
+          </header>
 
-        <div className="glass-card rounded-3xl p-8 md:p-12">
-          {error && (
-            <div className="bg-red-500/10 text-red-400 p-4 rounded-xl mb-8 border border-red-500/20">
-              {error}
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 select-none gap-6 md:grid-cols-2">
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-blue-100">{t('titleLabel')} *</label>
-                <input required type="text" name="title" value={formData.title} onChange={handleChange} className="manar-input" placeholder={t('titlePlaceholder')} />
+          <div className="glass-card rounded-3xl p-8 md:p-12">
+            {error && (
+              <div className="bg-red-500/10 text-red-400 p-4 rounded-xl mb-8 border border-red-500/20">
+                {error}
               </div>
-              
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-blue-100">{t('authorLabel')} *</label>
-                <input required type="text" name="author" value={formData.author} onChange={handleChange} className="manar-input" placeholder={t('authorPlaceholder')} />
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 select-none gap-6 md:grid-cols-2">
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-blue-100">{t('titleLabel')} *</label>
+                  <input required type="text" name="title" value={formData.title} onChange={handleChange} className="manar-input" placeholder={t('titlePlaceholder')} />
+                </div>
+                
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-blue-100">{t('authorLabel')} *</label>
+                  <input required type="text" name="author" value={formData.author} onChange={handleChange} className="manar-input" placeholder={t('authorPlaceholder')} />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-blue-100">{t('universityLabel')} *</label>
+                  <input required type="text" name="university" value={formData.university} onChange={handleChange} className="manar-input" placeholder={t('universityPlaceholder')} />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-blue-100">{t('yearLabel')} *</label>
+                  <input required type="number" name="year" value={formData.year} onChange={handleChange} className="manar-input" min="1900" max="2100" />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-blue-100">{t('typeLabel')} *</label>
+                  <select name="type" value={formData.type} onChange={handleChange} className="manar-input">
+                    <option value="Thesis">{t('typeThesis')}</option>
+                    <option value="Paper">{t('typePaper')}</option>
+                    <option value="Article">{t('typeArticle')}</option>
+                    <option value="Report">{t('typeReport')}</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-blue-100">{t('tagsLabel')}</label>
+                  <input type="text" name="tags" value={formData.tags} onChange={handleChange} className="manar-input" placeholder={t('tagsPlaceholder')} />
+                </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-blue-100">{t('universityLabel')} *</label>
-                <input required type="text" name="university" value={formData.university} onChange={handleChange} className="manar-input" placeholder={t('universityPlaceholder')} />
+                <label className="text-sm font-semibold text-blue-100">{t('documentUrlLabel')}</label>
+                <input type="url" name="documentUrl" value={formData.documentUrl} onChange={handleChange} className="manar-input" placeholder={t('documentUrlPlaceholder')} />
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-blue-100">{t('yearLabel')} *</label>
-                <input required type="number" name="year" value={formData.year} onChange={handleChange} className="manar-input" min="1900" max="2100" />
+                <label className="text-sm font-semibold text-blue-100">{t('abstractLabel')} *</label>
+                <textarea required name="abstract" value={formData.abstract} onChange={handleChange} rows={5} className="manar-input" placeholder={t('abstractPlaceholder')} />
               </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-blue-100">{t('typeLabel')} *</label>
-                <select name="type" value={formData.type} onChange={handleChange} className="manar-input">
-                  <option value="Thesis">{t('typeThesis')}</option>
-                  <option value="Paper">{t('typePaper')}</option>
-                  <option value="Article">{t('typeArticle')}</option>
-                  <option value="Report">{t('typeReport')}</option>
-                </select>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-blue-100">{t('tagsLabel')}</label>
-                <input type="text" name="tags" value={formData.tags} onChange={handleChange} className="manar-input" placeholder={t('tagsPlaceholder')} />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-blue-100">{t('documentUrlLabel')}</label>
-              <input type="url" name="documentUrl" value={formData.documentUrl} onChange={handleChange} className="manar-input" placeholder={t('documentUrlPlaceholder')} />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-blue-100">{t('abstractLabel')} *</label>
-              <textarea required name="abstract" value={formData.abstract} onChange={handleChange} rows={5} className="manar-input" placeholder={t('abstractPlaceholder')} />
-            </div>
-
-            <button 
-              type="submit" 
-              disabled={loading}
-              className="w-full manar-btn-gold flex justify-center items-center py-4 rounded-xl font-bold transition-all mt-8 disabled:opacity-70 disabled:cursor-not-allowed"
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="w-6 h-6 animate-spin mr-2 rtl:mr-0 rtl:ml-2" />
-                  {t('submitting')}
-                </>
-              ) : (
-                t('submitButton')
-              )}
-            </button>
-          </form>
+              <button 
+                type="submit" 
+                disabled={loading}
+                className="w-full manar-btn-gold flex justify-center items-center py-4 rounded-xl font-bold transition-all mt-8 disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="w-6 h-6 animate-spin mr-2 rtl:mr-0 rtl:ml-2" />
+                    {t('submitting')}
+                  </>
+                ) : (
+                  t('submitButton')
+                )}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </ProtectedRoute>
   );
 }

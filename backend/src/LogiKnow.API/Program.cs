@@ -1,8 +1,8 @@
-using AspNetCoreRateLimit;
 using LogiKnow.API.Middleware;
 using LogiKnow.Application;
 using LogiKnow.Domain.Interfaces;
 using LogiKnow.Infrastructure;
+using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -42,6 +42,18 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = builder.Configuration["JwtSettings:Audience"] ?? "manara-client",
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
     };
+    // Read JWT from httpOnly cookie if no Authorization header
+    options.Events = new JwtBearerEvents
+    {
+        OnMessageReceived = context =>
+        {
+            if (string.IsNullOrEmpty(context.Token))
+            {
+                context.Token = context.Request.Cookies["access_token"];
+            }
+            return Task.CompletedTask;
+        }
+    };
 });
 
 // ===== Rate Limiting =====
@@ -74,9 +86,10 @@ builder.Services.AddCors(options =>
     });
 });
 
-// ===== Swagger =====
+// ===== Swagger & API =====
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddHealthChecks();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -103,6 +116,14 @@ builder.Services.AddSwaggerGen(c =>
             Array.Empty<string>()
         }
     });
+
+    // Set the comments path for the Swagger JSON and UI.
+    var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    if (File.Exists(xmlPath))
+    {
+        c.IncludeXmlComments(xmlPath);
+    }
 });
 
 var app = builder.Build();
@@ -119,10 +140,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors();
 app.UseStaticFiles(); // Allow serving PDFs from wwwroot
+app.UseRouting();
 app.UseIpRateLimiting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.MapHealthChecks("/health");
 
 // ===== Seed Roles & Ensure ES Indices =====
 using (var scope = app.Services.CreateScope())

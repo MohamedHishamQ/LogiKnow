@@ -88,5 +88,22 @@
     "loading": "Loading...",
     "error": "An error occurred",
     "read": "Read"
+  },
+  "Auth": {
+    "login": "Login",
+    "register": "Create Account",
+    "logout": "Logout",
+    "email": "Email Address",
+    "password": "Password",
+    "fullName": "Full Name",
+    "preferredLanguage": "Preferred Language",
+    "loginText": "Welcome back to MANAR",
+    "registerText": "Join the logistics community",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "loginAction": "Sign In",
+    "registerAction": "Sign Up",
+    "loggingIn": "Signing in...",
+    "registering": "Creating account..."
   }
 }

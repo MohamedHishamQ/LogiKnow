@@ -1,26 +1,14 @@
 import axios from 'axios';
 
 // Get the base URL from env variables, fallback to localhost for development
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5038/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5039/api';
 
 export const apiClient = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
-  // In development, handle self-signed certificates for local HTTPS
-  // In a real app we'd configure this more securely
-});
-
-// Interceptor to attach auth token if available
-apiClient.interceptors.request.use((config) => {
-  if (typeof window !== 'undefined') {
-    const token = localStorage.getItem('token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-  }
-  return config;
+  withCredentials: true, // Send httpOnly cookies with every request
 });
 
 // Types based on our backend DTOs
@@ -83,6 +71,14 @@ export interface SearchResultDto {
   metadata: Record<string, any>;
 }
 
+export interface QuoteSearchResultDto {
+  bookId: string;
+  bookTitle: string;
+  pageNumber: number;
+  highlight: string;
+  surroundingContext: string;
+}
+
 export interface PaginatedResponse<T> {
   data: T[];
   meta: {
@@ -90,6 +86,29 @@ export interface PaginatedResponse<T> {
     size: number;
     total: number;
   };
+}
+
+export interface AuthUser {
+  userId: string;
+  email: string;
+  fullName?: string;
+  preferredLanguage: string;
+  roles: string[];
+  createdAt: string;
+}
+
+export interface AuthResponse {
+  token: string;
+  refreshToken: string;
+  expiresAt: string;
+  userId: string;
+  email: string;
+  fullName?: string;
+  roles: string[];
+}
+
+export interface SingleResponse<T> {
+  data: T;
 }
 
 // API Services
@@ -127,4 +146,24 @@ export const AcademicService = {
 export const SearchService = {
   search: (query: string, type?: string, page = 1, size = 20) => 
     apiClient.get<PaginatedResponse<SearchResultDto>>('/search', { params: { q: query, type, page, size } }),
+    
+  searchQuotes: (query: string, bookId?: string, page = 1, size = 20) =>
+    apiClient.get<PaginatedResponse<QuoteSearchResultDto>>('/search/quotes', { params: { q: query, bookId, page, size }})
+};
+
+export const AuthService = {
+  register: (data: { email: string; password: string; fullName?: string; preferredLanguage?: string }) =>
+    apiClient.post<SingleResponse<AuthResponse>>('/auth/register', data),
+
+  login: (data: { email: string; password: string }) =>
+    apiClient.post<SingleResponse<AuthResponse>>('/auth/login', data),
+
+  logout: () =>
+    apiClient.post('/auth/logout'),
+
+  refresh: () =>
+    apiClient.post<SingleResponse<AuthResponse>>('/auth/refresh'),
+
+  me: () =>
+    apiClient.get<AuthUser>('/auth/me'),
 };
