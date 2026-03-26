@@ -3,6 +3,7 @@ import {getMessages} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 import TopNav from '@/components/TopNav';
+import ChatBot from '@/components/ChatBot';
 import '../globals.css';
 
 import { AuthProvider } from '@/components/AuthProvider';
@@ -40,6 +41,7 @@ export default async function LocaleLayout({
             <main className="min-h-screen">
               {children}
             </main>
+            <ChatBot />
           </AuthProvider>
         </NextIntlClientProvider>
       </body>

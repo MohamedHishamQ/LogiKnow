@@ -105,5 +105,14 @@
     "registerAction": "Inscription",
     "loggingIn": "Connexion en cours...",
     "registering": "Création du compte..."
+  },
+  "Chatbot": {
+    "title": "Assistant IA MANARA",
+    "online": "En ligne",
+    "placeholder": "Posez une question sur la logistique...",
+    "send": "Envoyer",
+    "greeting": "Bienvenue ! Je suis l'assistant IA MANARA, votre assistant en connaissances logistiques. Interrogez-moi sur les termes d'expédition, les concepts de chaîne d'approvisionnement, le commerce maritime ou tout sujet logistique ! ⚓",
+    "error": "Désolé, je n'ai pas pu traiter votre demande. Veuillez réessayer.",
+    "poweredBy": "Propulsé par Gemini AI · Plateforme MANARA"
   }
 }
