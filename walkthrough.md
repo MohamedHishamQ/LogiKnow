@@ -1,9 +1,9 @@
-# MANARA (منارة) Platform Documentation
+# MANAR (منارة) Platform Documentation
 
-Welcome to **MANARA**, the professional Logistics Educational Web Application! This document serves as a comprehensive guide to all the features currently available on the platform and explains how they work behind the scenes.
+Welcome to **MANAR**, the professional Logistics Educational Web Application! This document serves as a comprehensive guide to all the features currently available on the platform and explains how they work behind the scenes.
 
 ## 🌟 1. Core Platform Architecture
-MANARA is a modern, high-performance web application built with a clear separation of concerns:
+MANAR is a modern, high-performance web application built with a clear separation of concerns:
 - **Frontend**: Built with **Next.js 14**, utilizing Server-Side Rendering (SSR) for blazing-fast SEO performance. It features a stunning, immersive glassy dark-theme UI with responsive internationalization (i18n) supporting English, Arabic, and French.
 - **Backend API**: A robust **.NET 6 API** built with Entity Framework Core, MediatR (CQRS pattern), and SQLite (in-memory during development).
 - **Security**: fully protected by JWT Bearer Authentication and Role-Based Authorization (Admin, Moderator, User).
@@ -18,7 +18,7 @@ The massive search bar on the homepage is not just for show—it is a live, debo
 ---
 
 ## 🧠 3. AI-Powered Explanations (OpenAI Integration)
-Logistics terminology can be dry. MANARA brings it to life using Artificial Intelligence.
+Logistics terminology can be dry. MANAR brings it to life using Artificial Intelligence.
 - **Where to find it**: Click on any Term in the "Terminology Bay" (e.g., *Supply Chain*). Scroll down to the golden **AI Explanation** panel.
 - **How it works**: You select your preferred learning style (Standard, Simplified, Academic, or Storytelling) and click Generate. The platform makes a secure request to the `POST /api/terms/{id}/explain` endpoint. The backend securely contacts the **OpenAI API** to generate a custom context-aware explanation!
 - **Graceful Fallback**: If you haven't configured your OpenAI API Key yet, the system detects it and instantly returns a beautiful, localized "Mock" response so the UI always feels alive.
@@ -30,16 +30,16 @@ A complete digital logistics library.
 - **Browsing**: Users can navigate the library and filter books by category and language.
 - **Smart "Read" Button**: 
   - If a user provides an **External Link** (e.g., Google Drive), the Read button securely opens that link.
-  - If an Admin **uploads a physical PDF** directly to the MANARA servers, the button smartly transforms into a golden **"Read PDF"** button that serves the file instantly at blazing speeds!
+  - If an Admin **uploads a physical PDF** directly to the MANAR servers, the button smartly transforms into a golden **"Read PDF"** button that serves the file instantly at blazing speeds!
 - **How to Upload PDFs via Swagger**:
-  1. Authenticate with `admin@manara.com` (Password: `Admin123!`).
+  1. Authenticate with `admin@manar.com` (Password: `Admin123!`).
   2. Create the book using `POST /api/Books`.
   3. Copy the returned [Id](file:///d:/ATD/Downloads/logi/backend/src/LogiKnow.API/Controllers/ArenaVideosController.cs#35-60).
   4. Use `POST /api/books/{id}/upload` to attach your physical PDF file. The database permanently saves the path, and the frontend instantly knows you uploaded it!
 
 ---
 
-## 🎬 5. MANARA Arena (Logistics Video Feed)
+## 🎬 5. MANAR Arena (Logistics Video Feed)
 A TikTok-style vertical scrolling feed of educational logistics videos.
 - **How it works**: Navigate down to the "Arena" on the homepage. The frontend aggressively pulls from the `GET /api/ArenaVideos` endpoint and presents them in an engaging, infinite-scroll, snap-to-align interface.
 - **Moderation**: Only Admins and Moderators can add or remove these videos using the highly secure `POST /api/ArenaVideos` endpoints.
@@ -47,7 +47,7 @@ A TikTok-style vertical scrolling feed of educational logistics videos.
 ---
 
 ## ⚖️ 6. Submissions & Moderation Workflow
-MANARA allows the community to contribute to the repository while keeping Admins entirely in control.
+MANAR allows the community to contribute to the repository while keeping Admins entirely in control.
 - **User Submissions**: Any user can go to the **"Submit Entry"** page via the Top Navigation Bar. They fill out a form detailing their logistics research paper or term definition.
 - **Database Vault**: The submission enters the database exactly as it was written, but is locked into a `Pending` state. The public **cannot** see it.
 - **Admin Approval**: An Admin uses the `/api/Submissions` endpoints to review all pending content. If an Admin sends a [ReviewSubmissionRequest](file:///d:/ATD/Downloads/logi/backend/src/LogiKnow.Application/Common/DTOs/Dtos.cs#199-204) with `Approve = true`, the system automatically transforms the raw submission into an official, searchable [AcademicEntry](file:///d:/ATD/Downloads/logi/frontend/src/api/client.ts#57-70) or [Term](file:///d:/ATD/Downloads/logi/frontend/src/api/client.ts#27-42) and publishes it live to the platform!

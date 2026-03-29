@@ -7,12 +7,12 @@ export default function HomePage() {
   
   return (
     <div className="flex h-[calc(100vh-5rem)] w-full overflow-hidden">
-      {/* Left Side: MANARA Knowledge Spire */}
+      {/* Left Side: MANAR Knowledge Spire */}
       <div className="w-full lg:w-1/2 h-full ltr:border-r rtl:border-l border-white/10 p-4 lg:p-6 overflow-y-auto scrollbar-hide">
         <KnowledgeSpire />
       </div>
       
-      {/* Right Side: MANARA Arena */}
+      {/* Right Side: MANAR Arena */}
       <div className="hidden lg:block w-1/2 h-full bg-black/30 backdrop-blur-md border-l border-white/5">
         <LogiTokFeed />
       </div>

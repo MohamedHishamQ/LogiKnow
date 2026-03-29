@@ -24,7 +24,7 @@ export default function KnowledgeSpire() {
           transition={{ duration: 0.8 }}
           className="text-6xl font-black text-white mb-2"
         >
-          MANARA <span className="text-4xl text-manar-gold">منارة</span>
+          MANAR <span className="text-4xl text-manar-gold">منارة</span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0 }}

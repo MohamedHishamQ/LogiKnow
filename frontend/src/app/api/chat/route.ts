@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${GEMINI_API_KEY}`;
 
-const SYSTEM_PROMPT = `You are MANARA AI Assistant (منارة), a specialized logistics and supply chain knowledge assistant for the MANARA educational platform.
+const SYSTEM_PROMPT = `You are MANAR AI Assistant (منارة), a specialized logistics and supply chain knowledge assistant for the MANAR educational platform.
 
 Your expertise covers:
 - Logistics terminology (Incoterms, FOB, CIF, CFR, EXW, etc.)

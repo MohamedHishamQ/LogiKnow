@@ -38,8 +38,8 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["JwtSettings:Issuer"] ?? "manara-api",
-        ValidAudience = builder.Configuration["JwtSettings:Audience"] ?? "manara-client",
+        ValidIssuer = builder.Configuration["JwtSettings:Issuer"] ?? "manar-api",
+        ValidAudience = builder.Configuration["JwtSettings:Audience"] ?? "manar-client",
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
     };
     // Read JWT from httpOnly cookie if no Authorization header
@@ -94,7 +94,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "MANARA API",
+        Title = "MANAR API",
         Version = "v1",
         Description = "Logistics Knowledge Platform API"
     });
@@ -135,7 +135,7 @@ app.UseMiddleware<RequestLoggingMiddleware>();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MANARA API v1"));
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MANAR API v1"));
 }
 
 app.UseCors();
@@ -170,12 +170,12 @@ using (var scope = app.Services.CreateScope())
     }
 
     var userManager = scope.ServiceProvider.GetRequiredService<Microsoft.AspNetCore.Identity.UserManager<LogiKnow.Domain.Entities.User>>();
-    if (await userManager.FindByEmailAsync("admin@manara.com") == null)
+    if (await userManager.FindByEmailAsync("admin@manar.com") == null)
     {
         var adminUser = new LogiKnow.Domain.Entities.User
         {
-            UserName = "admin@manara.com",
-            Email = "admin@manara.com",
+            UserName = "admin@manar.com",
+            Email = "admin@manar.com",
             FullName = "System Administrator",
             PreferredLanguage = "en"
         };
@@ -194,5 +194,5 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-Log.Information("MANARA API starting on {Urls}", string.Join(", ", app.Urls));
+Log.Information("MANAR API starting on {Urls}", string.Join(", ", app.Urls));
 app.Run();

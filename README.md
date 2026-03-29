@@ -1,8 +1,8 @@
-# MANARA — منارة
+# MANAR — منارة
 
 ### 🏗️ Logistics Knowledge Platform
 
-> **MANARA (منارة)** — _The Lighthouse of Logistics Knowledge_  
+> **MANAR (منارة)** — _The Lighthouse of Logistics Knowledge_  
 > A full-stack educational web application for maritime trade, supply chain management, and logistics terminology — powered by AI.
 
 ---
@@ -17,7 +17,7 @@
 
 ### 🤖 AI-Powered Features
 - **AI Explanation Engine** — Generate AI-powered explanations of logistics terms in multiple styles (Standard, Simplified, Academic, Storytelling)
-- **MANARA AI Chatbot** — Floating AI assistant powered by **Google Gemini**, specialized in logistics, maritime trade, supply chain, Incoterms, and shipping terminology. Available on every page.
+- **MANAR AI Chatbot** — Floating AI assistant powered by **Google Gemini**, specialized in logistics, maritime trade, supply chain, Incoterms, and shipping terminology. Available on every page.
 
 ### 🌐 Multilingual & Accessible
 - **Full i18n Support** — Arabic (عربي), English, and French with complete RTL support
@@ -152,7 +152,7 @@ docker compose up --build
 
 ## 🤖 AI Chatbot Configuration
 
-The MANARA AI Chatbot uses **Google Gemini** for intelligent logistics-focused conversations.
+The MANAR AI Chatbot uses **Google Gemini** for intelligent logistics-focused conversations.
 
 ### Setup
 1. Get a Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey)
@@ -184,7 +184,7 @@ Translation files are in `frontend/messages/` (JSON format). All UI labels, chat
 
 ## 🎨 Design System
 
-The UI uses a custom **MANARA** design system built on glassmorphism:
+The UI uses a custom **MANAR** design system built on glassmorphism:
 
 | Token | Value | Usage |
 |-------|-------|-------|
@@ -221,10 +221,10 @@ Key CSS classes: `.glass-panel`, `.glass-card`, `.glass-card-gold`, `.manar-btn-
 
 ## 📜 License
 
-This project is developed for educational purposes as part of the MANARA Logistics Knowledge Platform initiative.
+This project is developed for educational purposes as part of the MANAR Logistics Knowledge Platform initiative.
 
 ---
 
 <p align="center">
-  ⚓ <strong>MANARA — منارة</strong> · The Lighthouse of Logistics Knowledge
+  ⚓ <strong>MANAR — منارة</strong> · The Lighthouse of Logistics Knowledge
 </p>

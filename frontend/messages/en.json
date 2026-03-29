@@ -107,12 +107,12 @@
     "registering": "Creating account..."
   },
   "Chatbot": {
-    "title": "MANARA AI Assistant",
+    "title": "MANAR AI Assistant",
     "online": "Online",
     "placeholder": "Ask about logistics...",
     "send": "Send",
-    "greeting": "Welcome! I'm MANARA AI, your logistics knowledge assistant. Ask me about shipping terms, supply chain concepts, maritime trade, or any logistics topic! ⚓",
+    "greeting": "Welcome! I'm MANAR AI, your logistics knowledge assistant. Ask me about shipping terms, supply chain concepts, maritime trade, or any logistics topic! ⚓",
     "error": "Sorry, I couldn't process your request. Please try again.",
-    "poweredBy": "Powered by Gemini AI · MANARA Platform"
+    "poweredBy": "Powered by Gemini AI · MANAR Platform"
   }
 }

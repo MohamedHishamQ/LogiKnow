@@ -107,12 +107,12 @@
     "registering": "Création du compte..."
   },
   "Chatbot": {
-    "title": "Assistant IA MANARA",
+    "title": "Assistant IA MANAR",
     "online": "En ligne",
     "placeholder": "Posez une question sur la logistique...",
     "send": "Envoyer",
-    "greeting": "Bienvenue ! Je suis l'assistant IA MANARA, votre assistant en connaissances logistiques. Interrogez-moi sur les termes d'expédition, les concepts de chaîne d'approvisionnement, le commerce maritime ou tout sujet logistique ! ⚓",
+    "greeting": "Bienvenue ! Je suis l'assistant IA MANAR, votre assistant en connaissances logistiques. Interrogez-moi sur les termes d'expédition, les concepts de chaîne d'approvisionnement, le commerce maritime ou tout sujet logistique ! ⚓",
     "error": "Désolé, je n'ai pas pu traiter votre demande. Veuillez réessayer.",
-    "poweredBy": "Propulsé par Gemini AI · Plateforme MANARA"
+    "poweredBy": "Propulsé par Gemini AI · Plateforme MANAR"
   }
 }
