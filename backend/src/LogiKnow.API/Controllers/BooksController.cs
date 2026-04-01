@@ -1,6 +1,7 @@
 using LogiKnow.Application.Books.Commands;
 using LogiKnow.Application.Books.Queries;
 using LogiKnow.Application.Common.DTOs;
+using LogiKnow.Application.Interfaces;
 using LogiKnow.Domain.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -16,13 +17,15 @@ public class BooksController : ControllerBase
     private readonly ISearchService _searchService;
     private readonly ILogger<BooksController> _logger;
     private readonly IWebHostEnvironment _env;
+    private readonly IStorageService _storageService;
 
-    public BooksController(IMediator mediator, ISearchService searchService, ILogger<BooksController> logger, IWebHostEnvironment env)
+    public BooksController(IMediator mediator, ISearchService searchService, ILogger<BooksController> logger, IWebHostEnvironment env, IStorageService storageService)
     {
         _mediator = mediator;
         _searchService = searchService;
         _logger = logger;
         _env = env;
+        _storageService = storageService;
     }
 
     [HttpGet]
@@ -70,25 +73,15 @@ public class BooksController : ControllerBase
         var book = await dbContext.Books.FindAsync(new object[] { id }, ct);
         if (book == null) return NotFound("Book not found.");
 
-        var uploadsPath = Path.Combine(_env.WebRootPath ?? Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), "uploads", "books");
-        if (!Directory.Exists(uploadsPath)) Directory.CreateDirectory(uploadsPath);
-
-        var fileName = $"{id}{Path.GetExtension(file.FileName)}";
-        var filePath = Path.Combine(uploadsPath, fileName);
-
-        using (var stream = new FileStream(filePath, FileMode.Create))
-        {
-            await file.CopyToAsync(stream, ct);
-        }
-
-        var relativePath = $"/uploads/books/{fileName}";
+        using var stream = file.OpenReadStream();
+        var uploadedUrl = await _storageService.UploadFileAsync($"{id}.pdf", stream, file.ContentType, "books", ct);
         
-        book.BlobStoragePath = relativePath;
+        book.BlobStoragePath = uploadedUrl;
         book.UpdatedAt = DateTime.UtcNow;
         await dbContext.SaveChangesAsync(ct);
         
-        _logger.LogInformation("Uploaded PDF and updated path for book {Id} to {Path}", id, relativePath);
+        _logger.LogInformation("Uploaded PDF and updated path for book {Id} to {Path}", id, uploadedUrl);
         
-        return Ok(new { message = "Book PDF uploaded successfully.", path = relativePath });
+        return Ok(new { message = "Book PDF uploaded successfully.", path = uploadedUrl });
     }
 }

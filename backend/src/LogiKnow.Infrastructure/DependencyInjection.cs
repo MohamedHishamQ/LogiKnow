@@ -7,6 +7,7 @@ using LogiKnow.Infrastructure.Email;
 using LogiKnow.Infrastructure.Persistence;
 using LogiKnow.Infrastructure.Persistence.Repositories;
 using LogiKnow.Infrastructure.Search;
+using LogiKnow.Infrastructure.Storage;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -59,6 +60,7 @@ public static class DependencyInjection
         services.AddScoped<IAIService, OpenAIService>();
         services.AddScoped<IJwtService, JwtService>();
         services.AddScoped<IEmailService, EmailService>();
+        services.AddScoped<IStorageService, StorageService>();
 
         return services;
     }
