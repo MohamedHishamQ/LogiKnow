@@ -132,11 +132,9 @@ var app = builder.Build();
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseMiddleware<RequestLoggingMiddleware>();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MANAR API v1"));
-}
+// Swagger enabled in all environments for live API testing
+app.UseSwagger();
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LogiKnow API v1"));
 
 app.UseCors();
 app.UseStaticFiles(); // Allow serving PDFs from wwwroot
