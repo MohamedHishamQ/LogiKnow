@@ -1,3 +1,4 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Text.Json;
@@ -30,6 +31,12 @@ public class ExceptionMiddleware
         {
             _logger.LogWarning(ex, "Unauthorized access");
             await WriteProblemDetails(context, HttpStatusCode.Forbidden, "Forbidden", ex.Message);
+        }
+        catch (ValidationException ex)
+        {
+            _logger.LogWarning(ex, "FluentValidation error");
+            var errors = string.Join(" ", ex.Errors.Select(e => e.ErrorMessage));
+            await WriteProblemDetails(context, HttpStatusCode.BadRequest, "Validation Error", errors);
         }
         catch (ArgumentException ex)
         {

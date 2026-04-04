@@ -36,7 +36,8 @@ public class MappingProfile : Profile
 
         CreateMap<SubmitAcademicEntryRequest, AcademicEntry>()
             .ForMember(d => d.Tags, opt => opt.Ignore())
-            .ForMember(d => d.Status, opt => opt.Ignore());
+            .ForMember(d => d.Status, opt => opt.Ignore())
+            .ForMember(d => d.Type, opt => opt.Ignore());
 
         // Submission mappings
         CreateMap<Submission, SubmissionDto>()
