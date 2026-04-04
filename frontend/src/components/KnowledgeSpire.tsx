@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Book, Library, PlaySquare, Flame, Loader2 } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import SearchBar from '@/components/SearchBar';
+import ChatBot from '@/components/ChatBot';
 import { useState, useEffect } from 'react';
 import { TermsService, TermDto } from '@/api/client';
 
@@ -50,7 +51,7 @@ export default function KnowledgeSpire() {
           transition={{ duration: 0.8 }}
           className="text-6xl font-black text-white mb-2"
         >
-          MANAR <span className="text-4xl text-manar-gold">منارة</span>
+          MANAR <span className="text-4xl text-manar-gold">منار</span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0 }}
@@ -86,8 +87,9 @@ export default function KnowledgeSpire() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 0.8 }}
-        className="mt-16 w-full max-w-lg z-10 [perspective:1000px] min-h-[8rem]"
+        className="mt-16 w-full max-w-2xl z-10 flex items-center justify-center gap-6"
       >
+        <div className="w-full max-w-lg [perspective:1000px] min-h-[8rem]">
         <AnimatePresence mode="wait">
           {isLoading ? (
             <motion.div key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full relative h-32 glass-panel flex flex-col items-center justify-center border-b-4 border-white/10">
@@ -117,6 +119,10 @@ export default function KnowledgeSpire() {
             </motion.div>
           )}
         </AnimatePresence>
+        </div>
+        <div className="flex-shrink-0 animate-bounce-slow">
+          <ChatBot inlineMode={true} />
+        </div>
       </motion.div>
     </div>
   );

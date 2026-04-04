@@ -48,8 +48,8 @@ export default function LogiTokFeed() {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-6rem)] overflow-hidden relative">
-      <div className="flex justify-between items-center px-6 py-4 z-10 bg-black/40 backdrop-blur-md border-b border-white/5">
+    <div className="flex flex-col h-full overflow-hidden relative">
+      <div className="flex justify-between items-center px-6 py-4 z-20 bg-black/40 backdrop-blur-md border-b border-white/5">
         <h2 className="text-2xl font-black text-white glow-text italic">MANAR Arena</h2>
         <span className="px-4 py-1 rounded-full glass-panel text-xs text-manar-cyan font-bold tracking-widest border-manar-cyan/50">LIVE PITCHES</span>
       </div>

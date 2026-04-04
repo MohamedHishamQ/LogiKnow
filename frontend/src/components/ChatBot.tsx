@@ -13,7 +13,7 @@ interface Message {
   timestamp: Date;
 }
 
-export default function ChatBot() {
+export default function ChatBot({ inlineMode = false }: { inlineMode?: boolean }) {
   const t = useTranslations('Chatbot');
   const locale = useLocale();
   const isRTL = locale === 'ar';
@@ -130,7 +130,7 @@ export default function ChatBot() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 rtl:right-auto rtl:left-6 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-manar-cyan to-manar-blue flex items-center justify-center shadow-[0_0_30px_rgba(34,211,238,0.4)] hover:shadow-[0_0_50px_rgba(34,211,238,0.6)] transition-shadow duration-300 chatbot-pulse-ring"
+            className={`${inlineMode ? 'relative' : 'fixed bottom-6 right-6 rtl:right-auto rtl:left-6'} z-50 w-16 h-16 rounded-full bg-gradient-to-br from-manar-cyan to-manar-blue flex items-center justify-center shadow-[0_0_30px_rgba(34,211,238,0.4)] hover:shadow-[0_0_50px_rgba(34,211,238,0.6)] transition-shadow duration-300 chatbot-pulse-ring`}
             id="chatbot-toggle-button"
             aria-label="Open chatbot"
           >
@@ -147,7 +147,7 @@ export default function ChatBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.9 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-6 right-6 rtl:right-auto rtl:left-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[560px] max-h-[calc(100vh-6rem)] flex flex-col rounded-2xl overflow-hidden"
+            className={`fixed ${inlineMode ? 'bottom-6 left-6 rtl:left-auto rtl:right-6 lg:left-[5%] lg:rtl:right-[5%]' : 'bottom-6 right-6 rtl:right-auto rtl:left-6'} z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[560px] max-h-[calc(100vh-6rem)] flex flex-col rounded-2xl overflow-hidden`}
             style={{
               background: 'linear-gradient(135deg, rgba(10, 14, 26, 0.95) 0%, rgba(15, 23, 42, 0.92) 100%)',
               backdropFilter: 'blur(24px)',

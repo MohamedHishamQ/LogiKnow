@@ -6,7 +6,7 @@ export default function HomePage() {
   const t = useTranslations('Index');
   
   return (
-    <div className="flex h-[calc(100vh-5rem)] w-full overflow-hidden">
+    <div className="flex flex-1 w-full overflow-hidden">
       {/* Left Side: MANAR Knowledge Spire */}
       <div className="w-full lg:w-1/2 h-full ltr:border-r rtl:border-l border-white/10 p-4 lg:p-6 overflow-y-auto scrollbar-hide">
         <KnowledgeSpire />
