@@ -6,6 +6,7 @@ using LogiKnow.Domain.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace LogiKnow.API.Controllers;
 
@@ -54,6 +55,16 @@ public class BooksController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = result.Id }, new SingleResponse<BookDto> { Data = result });
     }
 
+    [HttpPost("submit")]
+    [Authorize]
+    public async Task<IActionResult> Submit([FromBody] SubmitBookRequest request, CancellationToken ct = default)
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "";
+        _logger.LogDebug("Submit book by user: {UserId}", userId);
+        var result = await _mediator.Send(new SubmitBookCommand(request, userId), ct);
+        return Ok(new SingleResponse<BookDto> { Data = result });
+    }
+
     [HttpPut("{id:guid}/index")]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> TriggerIndex(Guid id, CancellationToken ct = default)
@@ -74,14 +85,59 @@ public class BooksController : ControllerBase
         if (book == null) return NotFound("Book not found.");
 
         using var stream = file.OpenReadStream();
-        var uploadedUrl = await _storageService.UploadFileAsync($"{id}.pdf", stream, file.ContentType, "books", ct);
         
+        // 1. Upload to storage
+        var uploadedUrl = await _storageService.UploadFileAsync($"{id}.pdf", stream, file.ContentType, "books", ct);
         book.BlobStoragePath = uploadedUrl;
         book.UpdatedAt = DateTime.UtcNow;
+
+        // Reset stream position for PDF parsing
+        stream.Position = 0;
+
+        // 2. Parse PDF and extract pages
+        try
+        {
+            var pages = new List<LogiKnow.Domain.Entities.BookPage>();
+            using (var pdfDocument = UglyToad.PdfPig.PdfDocument.Open(stream))
+            {
+                foreach (var page in pdfDocument.GetPages())
+                {
+                    var text = page.Text;
+                    if (!string.IsNullOrWhiteSpace(text))
+                    {
+                        pages.Add(new LogiKnow.Domain.Entities.BookPage
+                        {
+                            Id = Guid.NewGuid(),
+                            BookId = id,
+                            PageNumber = page.Number,
+                            Content = text,
+                            CreatedAt = DateTime.UtcNow,
+                            UpdatedAt = DateTime.UtcNow
+                        });
+                    }
+                }
+            }
+
+            if (pages.Any())
+            {
+                // Remove existing pages if re-uploading
+                var existingPages = dbContext.BookPages.Where(p => p.BookId == id);
+                dbContext.BookPages.RemoveRange(existingPages);
+
+                dbContext.BookPages.AddRange(pages);
+                book.IsIndexedForSearch = true; // Mark as indexed
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to parse PDF for book {Id}", id);
+            // We can still continue to save the uploaded URL even if parsing fails
+        }
+
         await dbContext.SaveChangesAsync(ct);
         
-        _logger.LogInformation("Uploaded PDF and updated path for book {Id} to {Path}", id, uploadedUrl);
+        _logger.LogInformation("Uploaded PDF and extracted pages for book {Id}", id);
         
-        return Ok(new { message = "Book PDF uploaded successfully.", path = uploadedUrl });
+        return Ok(new { message = "Book PDF uploaded and processed successfully.", path = uploadedUrl });
     }
 }

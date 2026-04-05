@@ -127,6 +127,9 @@ export const BooksService = {
   getBooks: (page = 1, size = 20) => 
     apiClient.get<PaginatedResponse<BookDto>>('/books', { params: { page, size } }),
     
+  submitBook: (data: any) =>
+    apiClient.post<SingleResponse<BookDto>>('/books/submit', data),
+
   uploadBook: (id: string, file: File) => {
     const formData = new FormData();
     formData.append('file', file);

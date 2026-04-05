@@ -13,11 +13,13 @@ public class ReviewSubmissionHandler : IRequestHandler<ReviewSubmissionCommand, 
 {
     private readonly ISubmissionRepository _repo;
     private readonly IAcademicRepository _academicRepo;
+    private readonly IBookRepository _bookRepo;
 
-    public ReviewSubmissionHandler(ISubmissionRepository repo, IAcademicRepository academicRepo)
+    public ReviewSubmissionHandler(ISubmissionRepository repo, IAcademicRepository academicRepo, IBookRepository bookRepo)
     {
         _repo = repo;
         _academicRepo = academicRepo;
+        _bookRepo = bookRepo;
     }
 
     public async Task<SubmissionDto> Handle(ReviewSubmissionCommand request, CancellationToken ct)
@@ -46,6 +48,17 @@ public class ReviewSubmissionHandler : IRequestHandler<ReviewSubmissionCommand, 
                 {
                     entry.Status = SubmissionStatus.Approved;
                     await _academicRepo.CreateAsync(entry, ct);
+                }
+            }
+            else if (submission.EntityType == "Book")
+            {
+                var book = System.Text.Json.JsonSerializer.Deserialize<Book>(submission.JsonData);
+                if (book != null)
+                {
+                    book.IsPublished = true;
+                    // Ensure the ID is not already tracked or conflict - the submission generated a Guid,
+                    // but we can generate a new one or keep it. We'll keep it.
+                    await _bookRepo.CreateAsync(book, ct);
                 }
             }
         }

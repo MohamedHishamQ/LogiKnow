@@ -104,6 +104,18 @@ public class AddBookRequest
     public bool IsPublished { get; set; } = false;
 }
 
+public class SubmitBookRequest
+{
+    public string Title { get; set; } = string.Empty;
+    public List<string> Authors { get; set; } = new();
+    public int? Year { get; set; }
+    public string? ISBN { get; set; }
+    public string Language { get; set; } = string.Empty;
+    public string Category { get; set; } = string.Empty;
+    public string? CoverUrl { get; set; }
+    public string? ExternalLink { get; set; }
+}
+
 // ===== Arena Video DTOs =====
 public class ArenaVideoDto
 {
