@@ -18,8 +18,9 @@ public class GetArenaVideosHandler : IRequestHandler<GetArenaVideosQuery, Pagina
 
     public async Task<PaginatedResponse<ArenaVideoDto>> Handle(GetArenaVideosQuery request, CancellationToken ct)
     {
+        var page = Math.Max(request.Page, 1);
         var size = Math.Clamp(request.Size, 1, 100);
-        var (items, total) = await _repo.GetAllAsync(request.Page, size, ct);
+        var (items, total) = await _repo.GetAllAsync(page, size, ct);
 
         var dtos = items.Select(v => new ArenaVideoDto
         {

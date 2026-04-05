@@ -21,8 +21,9 @@ public class ArenaVideoRepository : IArenaVideoRepository
             .AsQueryable();
 
         var total = await query.CountAsync(ct);
+        var skip = (Math.Max(page, 1) - 1) * size;
         var items = await query.OrderByDescending(v => v.CreatedAt)
-            .Skip((page - 1) * size).Take(size)
+            .Skip(skip).Take(size)
             .ToListAsync(ct);
 
         return (items, total);

@@ -13,11 +13,13 @@ public record SubmitAcademicEntryCommand(SubmitAcademicEntryRequest Data, string
 public class SubmitAcademicEntryHandler : IRequestHandler<SubmitAcademicEntryCommand, AcademicEntryDto>
 {
     private readonly IAcademicRepository _repo;
+    private readonly ISubmissionRepository _submissionRepo;
     private readonly IMapper _mapper;
 
-    public SubmitAcademicEntryHandler(IAcademicRepository repo, IMapper mapper)
+    public SubmitAcademicEntryHandler(IAcademicRepository repo, ISubmissionRepository submissionRepo, IMapper mapper)
     {
         _repo = repo;
+        _submissionRepo = submissionRepo;
         _mapper = mapper;
     }
 
@@ -30,7 +32,18 @@ public class SubmitAcademicEntryHandler : IRequestHandler<SubmitAcademicEntryCom
         if (Enum.TryParse<AcademicEntryType>(request.Data.Type, true, out var type))
             entry.Type = type;
 
-        var created = await _repo.CreateAsync(entry, ct);
-        return _mapper.Map<AcademicEntryDto>(created);
+        // Create a Submission record
+        var submission = new Submission
+        {
+            EntityType = "AcademicEntry",
+            JsonData = System.Text.Json.JsonSerializer.Serialize(entry),
+            Status = SubmissionStatus.Pending,
+            SubmittedBy = request.SubmittedBy
+        };
+
+        await _submissionRepo.CreateAsync(submission, ct);
+
+        // For now, we still return the mapped DTO
+        return _mapper.Map<AcademicEntryDto>(entry);
     }
 }

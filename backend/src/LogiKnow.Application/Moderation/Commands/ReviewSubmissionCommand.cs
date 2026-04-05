@@ -1,4 +1,5 @@
 using LogiKnow.Application.Common.DTOs;
+using LogiKnow.Domain.Entities;
 using LogiKnow.Domain.Enums;
 using LogiKnow.Domain.Interfaces;
 using MediatR;
@@ -11,10 +12,12 @@ public record ReviewSubmissionCommand(Guid Id, bool Approve, string? Reason, str
 public class ReviewSubmissionHandler : IRequestHandler<ReviewSubmissionCommand, SubmissionDto>
 {
     private readonly ISubmissionRepository _repo;
+    private readonly IAcademicRepository _academicRepo;
 
-    public ReviewSubmissionHandler(ISubmissionRepository repo)
+    public ReviewSubmissionHandler(ISubmissionRepository repo, IAcademicRepository academicRepo)
     {
         _repo = repo;
+        _academicRepo = academicRepo;
     }
 
     public async Task<SubmissionDto> Handle(ReviewSubmissionCommand request, CancellationToken ct)
@@ -33,8 +36,19 @@ public class ReviewSubmissionHandler : IRequestHandler<ReviewSubmissionCommand, 
 
         await _repo.UpdateAsync(submission, ct);
 
-        // TODO: If approved, we might need to actually insert the entity (Term, Book, etc.) into the respected repository
-        // This will require deserializing JsonData based on EntityType. 
+        // If approved, insert the entity into the respected repository
+        if (request.Approve)
+        {
+            if (submission.EntityType == "AcademicEntry")
+            {
+                var entry = System.Text.Json.JsonSerializer.Deserialize<AcademicEntry>(submission.JsonData);
+                if (entry != null)
+                {
+                    entry.Status = SubmissionStatus.Approved;
+                    await _academicRepo.CreateAsync(entry, ct);
+                }
+            }
+        }
 
         return new SubmissionDto
         {

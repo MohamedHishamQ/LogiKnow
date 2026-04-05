@@ -57,7 +57,7 @@ public static class DependencyInjection
 
         // Services
         services.AddScoped<ISearchService, MockSearchService>();
-        services.AddScoped<IAIService, OpenAIService>();
+        services.AddScoped<IAIService, GeminiAIService>();
         services.AddScoped<IJwtService, JwtService>();
         services.AddScoped<IEmailService, EmailService>();
         services.AddScoped<IStorageService, StorageService>();

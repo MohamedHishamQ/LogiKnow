@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -9,17 +9,19 @@ namespace LogiKnow.Infrastructure.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<DateTime>(
-                name: "RefreshTokenExpiry",
-                table: "AspNetUsers",
-                type: "datetime2",
-                nullable: true);
+            migrationBuilder.Sql(@"
+                IF NOT EXISTS (SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('[AspNetUsers]') AND name = 'RefreshTokenExpiry')
+                BEGIN
+                    ALTER TABLE [AspNetUsers] ADD [RefreshTokenExpiry] datetime2 NULL;
+                END
+            ");
 
-            migrationBuilder.AddColumn<string>(
-                name: "RefreshTokenHash",
-                table: "AspNetUsers",
-                type: "nvarchar(max)",
-                nullable: true);
+            migrationBuilder.Sql(@"
+                IF NOT EXISTS (SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('[AspNetUsers]') AND name = 'RefreshTokenHash')
+                BEGIN
+                    ALTER TABLE [AspNetUsers] ADD [RefreshTokenHash] nvarchar(max) NULL;
+                END
+            ");
 
             migrationBuilder.CreateTable(
                 name: "ArenaVideos",
