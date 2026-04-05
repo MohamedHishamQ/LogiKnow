@@ -17,7 +17,7 @@ public class GeminiAIService : IAIService
     public GeminiAIService(IConfiguration config, ILogger<GeminiAIService> logger)
     {
         _apiKey = config["GoogleAI:ApiKey"] ?? "";
-        _model = config["GoogleAI:Model"] ?? "gemini-1.5-flash";
+        _model = config["GoogleAI:Model"] ?? "gemini-2.0-flash";
         _logger = logger;
 
         _isConfigured = !string.IsNullOrWhiteSpace(_apiKey) 
