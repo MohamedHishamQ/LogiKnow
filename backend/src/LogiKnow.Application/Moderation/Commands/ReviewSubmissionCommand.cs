@@ -14,12 +14,18 @@ public class ReviewSubmissionHandler : IRequestHandler<ReviewSubmissionCommand, 
     private readonly ISubmissionRepository _repo;
     private readonly IAcademicRepository _academicRepo;
     private readonly IBookRepository _bookRepo;
+    private readonly ISearchService _searchService;
 
-    public ReviewSubmissionHandler(ISubmissionRepository repo, IAcademicRepository academicRepo, IBookRepository bookRepo)
+    public ReviewSubmissionHandler(
+        ISubmissionRepository repo, 
+        IAcademicRepository academicRepo, 
+        IBookRepository bookRepo,
+        ISearchService searchService)
     {
         _repo = repo;
         _academicRepo = academicRepo;
         _bookRepo = bookRepo;
+        _searchService = searchService;
     }
 
     public async Task<SubmissionDto> Handle(ReviewSubmissionCommand request, CancellationToken ct)
@@ -61,18 +67,64 @@ public class ReviewSubmissionHandler : IRequestHandler<ReviewSubmissionCommand, 
                 catch { }
             }
 
-            if (entityId != Guid.Empty)
+            if (submission.EntityType == "AcademicEntry")
             {
-                if (submission.EntityType == "AcademicEntry")
+                bool processed = false;
+                try
+                {
+                    var entry = System.Text.Json.JsonSerializer.Deserialize<AcademicEntry>(submission.JsonData);
+                    // If deserialization gives us a valid object with more than just ID
+                    if (entry != null && !string.IsNullOrEmpty(entry.Title))
+                    {
+                        entry.Status = SubmissionStatus.Approved;
+                        var existing = await _academicRepo.GetByIdAsync(entry.Id, ct);
+                        if (existing == null)
+                            await _academicRepo.CreateAsync(entry, ct);
+                        else
+                            await _academicRepo.UpdateAsync(entry, ct);
+                        
+                        // Trigger indexing for the approved entry
+                        await _searchService.IndexAcademicEntryAsync(entry.Id, ct);
+                        processed = true;
+                    }
+                }
+                catch { }
+
+                if (!processed && entityId != Guid.Empty)
                 {
                     var entry = await _academicRepo.GetByIdAsync(entityId, ct);
                     if (entry != null)
                     {
                         entry.Status = SubmissionStatus.Approved;
                         await _academicRepo.UpdateAsync(entry, ct);
+                        await _searchService.IndexAcademicEntryAsync(entry.Id, ct);
                     }
                 }
-                else if (submission.EntityType == "Book")
+            }
+            else if (submission.EntityType == "Book")
+            {
+                bool processed = false;
+                try 
+                {
+                    var book = System.Text.Json.JsonSerializer.Deserialize<Book>(submission.JsonData);
+                    if (book != null && !string.IsNullOrEmpty(book.Title))
+                    {
+                        book.IsPublished = true;
+                        
+                        // Submissions for books might contain new books or updates
+                        var existing = await _bookRepo.GetByIdAsync(book.Id, ct);
+                        if (existing == null)
+                            await _bookRepo.CreateAsync(book, ct);
+                        else
+                            await _bookRepo.UpdateAsync(book, ct);
+                        
+                        processed = true;
+                        // Note: Full-text indexing for books (pages) is triggered after PDF upload
+                    }
+                }
+                catch { }
+
+                if (!processed && entityId != Guid.Empty)
                 {
                     var book = await _bookRepo.GetByIdAsync(entityId, ct);
                     if (book != null)
