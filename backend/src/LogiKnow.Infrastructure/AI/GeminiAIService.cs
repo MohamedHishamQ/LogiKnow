@@ -17,11 +17,11 @@ public class GeminiAIService : IAIService
     public GeminiAIService(IConfiguration config, ILogger<GeminiAIService> logger)
     {
         _apiKey = config["GoogleAI:ApiKey"] ?? "";
-        _model = config["GoogleAI:Model"] ?? "gemini-2.0-flash";
+        _model = config["GoogleAI:Model"] ?? "gemini-2.5-flash";
         _logger = logger;
 
-        _isConfigured = !string.IsNullOrWhiteSpace(_apiKey) 
-                        && !_apiKey.Equals("REPLACE", StringComparison.OrdinalIgnoreCase);
+        _isConfigured = !string.IsNullOrWhiteSpace(_apiKey)
+                        && !_apiKey.StartsWith("REPLACE", StringComparison.OrdinalIgnoreCase);
 
         _httpClient = new HttpClient();
     }
