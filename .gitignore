@@ -1,4 +1,3 @@
-@"
 # Build output
 **/bin/
 **/obj/
@@ -21,4 +20,3 @@ appsettings.Development.json
 
 # Git helper files
 git_add_paths.txt
-"@ | Set-Content .gitignore
