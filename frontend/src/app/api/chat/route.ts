@@ -31,7 +31,7 @@ interface ChatMessage {
 export async function POST(request: NextRequest) {
   // Read env vars inside the handler so Vercel always resolves them at runtime
   const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-  const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+  const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
   try {
     if (!GEMINI_API_KEY) {
@@ -100,9 +100,15 @@ export async function POST(request: NextRequest) {
 
     if (!geminiResponse.ok) {
       const errorData = await geminiResponse.text();
-      console.error('Gemini API error:', errorData);
+      console.error('Gemini API error:', geminiResponse.status, errorData);
+      let userMessage = 'Failed to get response from AI';
+      try {
+        const parsed = JSON.parse(errorData);
+        const apiMsg = parsed?.error?.message;
+        if (apiMsg) userMessage = apiMsg;
+      } catch {}
       return NextResponse.json(
-        { error: 'Failed to get response from AI' },
+        { error: userMessage },
         { status: 502 }
       );
     }
