@@ -17,7 +17,7 @@ export default function ExplanationPanel({ termId, initialLanguage = 'ar' }: { t
     setError('');
     try {
       const res = await TermsService.explainTerm(termId, initialLanguage, style);
-      setExplanation(res.data);
+      setExplanation(res.data.data);
     } catch (err: any) {
       setError(err?.message || 'Failed to generate explanation');
       console.error(err);

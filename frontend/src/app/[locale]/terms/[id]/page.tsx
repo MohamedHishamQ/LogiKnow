@@ -9,7 +9,8 @@ export async function generateMetadata({ params }: any) {
   const { locale, id } = await params;
   try {
     const res = await TermsService.getTerm(id);
-    const title = locale === 'ar' ? res.data.nameAr : (locale === 'fr' ? (res.data.nameFr || res.data.nameEn) : res.data.nameEn);
+    const term = res.data.data;
+    const title = locale === 'ar' ? term.nameAr : (locale === 'fr' ? (term.nameFr || term.nameEn) : term.nameEn);
     return { title: `${title} - MANAR` };
   } catch {
     return { title: 'Term Not Found' };
@@ -23,7 +24,7 @@ export default async function TermPage({ params }: any) {
   let term;
   try {
     const res = await TermsService.getTerm(id);
-    term = res.data;
+    term = res.data.data;
   } catch (error) {
     notFound();
   }

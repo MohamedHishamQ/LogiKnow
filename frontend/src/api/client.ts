@@ -128,11 +128,11 @@ export const TermsService = {
   getTerms: (page = 1, size = 20) => 
     apiClient.get<PaginatedResponse<TermDto>>('/terms', { params: { page, size } }),
     
-  getTerm: (id: string) => 
-    apiClient.get<TermDto>(`/terms/${id}`),
+  getTerm: (id: string) =>
+    apiClient.get<SingleResponse<TermDto>>(`/terms/${id}`),
 
-  explainTerm: (id: string, language?: string, style?: string) => 
-    apiClient.get<ExplanationResponse>(`/terms/${id}/explain`, { params: { language, style } })
+  explainTerm: (id: string, lang?: string, style?: string) =>
+    apiClient.get<SingleResponse<ExplanationResponse>>(`/terms/${id}/explain`, { params: { lang, style } })
 };
 
 export const BooksService = {
