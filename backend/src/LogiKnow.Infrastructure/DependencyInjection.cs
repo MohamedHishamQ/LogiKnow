@@ -38,7 +38,7 @@ public static class DependencyInjection
         .AddEntityFrameworkStores<AppDbContext>()
         .AddDefaultTokenProviders();
 
-        // Elasticsearch
+        // Elastic search
         var elasticUri = configuration["Elasticsearch:Uri"] ?? "http://localhost:9200";
         var settings = new ConnectionSettings(new Uri(elasticUri));
         var esUser = configuration["Elasticsearch:Username"];
