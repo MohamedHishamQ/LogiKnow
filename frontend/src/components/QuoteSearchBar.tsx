@@ -1,42 +1,48 @@
-import { useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
-import { Search, Loader2, Book, Anchor } from 'lucide-react';
-import { BooksService, BookDto } from '@/api/client';
+import { SearchService, BookDto, QuoteSearchBookItem } from '@/api/client';
 
 export default function QuoteSearchBar({ 
   onSearch, 
-  loading 
+  loading,
+  isDeep = false
 }: { 
   onSearch: (query: string, bookId?: string) => void,
-  loading: boolean 
+  loading: boolean,
+  isDeep?: boolean
 }) {
   const t = useTranslations('Search');
   const [query, setQuery] = useState('');
   const [selectedBook, setSelectedBook] = useState('all');
-  const [books, setBooks] = useState<BookDto[]>([]);
+  const [books, setBooks] = useState<{id: string, title: string}[]>([]);
   const [booksLoading, setBooksLoading] = useState(true);
 
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        let allBooks: BookDto[] = [];
-        let page = 1;
-        let totalPages = 1;
-        
-        do {
-          const res = await BooksService.getBooks(page, 100);
-          allBooks = [...allBooks, ...res.data.data];
+        if (isDeep) {
+          // Fetch only indexed books for deep search
+          const res = await SearchService.getDeepSearchBooks();
+          setBooks(res.data.data.filter(b => b.hasPages).map(b => ({ id: b.id, title: b.title })));
+        } else {
+          // Fetch all published books for general quote search
+          // (General search in MockSearchService might be less restrictive or different)
+          let allBooks: BookDto[] = [];
+          let page = 1;
+          let totalPages = 1;
           
-          if (res.data.meta && res.data.meta.total) {
-            totalPages = Math.ceil(res.data.meta.total / 100);
-          } else {
-            totalPages = 1;
-          }
-          page++;
-        } while (page <= totalPages);
-        
-        // Fetch published books (MockSearchService searches all books even if not indexed via ES)
-        setBooks(allBooks.filter(b => b.isPublished));
+          do {
+            const res = await BooksService.getBooks(page, 100);
+            allBooks = [...allBooks, ...res.data.data];
+            
+            if (res.data.meta && res.data.meta.total) {
+              totalPages = Math.ceil(res.data.meta.total / 100);
+            } else {
+              totalPages = 1;
+            }
+            page++;
+          } while (page <= totalPages);
+          
+          setBooks(allBooks.filter(b => b.isPublished).map(b => ({ id: b.id, title: b.title })));
+        }
       } catch (error) {
         console.error('Failed to load books for filter', error);
       } finally {
@@ -44,7 +50,7 @@ export default function QuoteSearchBar({
       }
     };
     fetchBooks();
-  }, []);
+  }, [isDeep]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

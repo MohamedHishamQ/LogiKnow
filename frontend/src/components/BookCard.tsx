@@ -36,7 +36,9 @@ export default function BookCard({ book, locale }: { book: BookDto, locale: stri
             {(() => {
               const hasExternalLink = book.externalLink && book.externalLink !== "NA" && book.externalLink.length > 3;
               const hasPdf = !!(book as any).blobStoragePath;
-              const pdfUrl = hasPdf ? `${(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5039/api').replace('/api', '')}${(book as any).blobStoragePath}` : null;
+              const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5039/api';
+              const baseUrl = apiUrl.endsWith('/api') ? apiUrl.slice(0, -4) : apiUrl;
+              const pdfUrl = hasPdf ? `${baseUrl}${(book as any).blobStoragePath}` : null;
               
               const readUrl = pdfUrl || (hasExternalLink ? book.externalLink : null);
               

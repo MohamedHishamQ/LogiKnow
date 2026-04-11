@@ -14,7 +14,7 @@ export default function BooksPage({ params }: any) {
   const locale = 'ar'; 
   const t = useTranslations('Books');
   
-  const [activeTab, setActiveTab] = useState<'catalog' | 'quotes'>('catalog');
+  const [activeTab, setActiveTab] = useState<'catalog' | 'quotes' | 'deep'>('catalog');
   
   // Catalog State
   const [books, setBooks] = useState<BookDto[]>([]);
@@ -41,9 +41,13 @@ export default function BooksPage({ params }: any) {
 
   useEffect(() => {
     if (hasSearched && currentQuoteQuery) {
-      loadQuotes(currentQuoteQuery, currentQuoteBookId, quotePage);
+      if (activeTab === 'deep') {
+        loadDeepSearch(currentQuoteQuery, currentQuoteBookId, quotePage);
+      } else {
+        loadQuotes(currentQuoteQuery, currentQuoteBookId, quotePage);
+      }
     }
-  }, [quotePage]);
+  }, [quotePage, activeTab]);
 
   const loadBooks = async (page: number) => {
     setBooksLoading(true);
@@ -69,7 +73,12 @@ export default function BooksPage({ params }: any) {
     setCurrentQuoteQuery(query);
     setCurrentQuoteBookId(bookId);
     setQuotePage(1); // Reset to page 1 on new search
-    await loadQuotes(query, bookId, 1);
+    
+    if (activeTab === 'deep') {
+      await loadDeepSearch(query, bookId, 1);
+    } else {
+      await loadQuotes(query, bookId, 1);
+    }
   };
 
   const loadQuotes = async (query: string, bookId?: string, page: number = 1) => {
@@ -92,6 +101,26 @@ export default function BooksPage({ params }: any) {
     }
   };
 
+  const loadDeepSearch = async (query: string, bookId?: string, page: number = 1) => {
+    setQuotesLoading(true);
+    setQuotesError('');
+    
+    try {
+      const res = await SearchService.deepSearch(query, bookId, page, quotePageSize);
+      setQuotes(res.data?.data || []);
+      
+      if (res.data?.meta?.total) {
+        setQuoteTotalPages(Math.ceil(res.data.meta.total / quotePageSize));
+      } else {
+        setQuoteTotalPages(1);
+      }
+    } catch (error: any) {
+      setQuotesError(error.response?.data?.error || error.message || 'Deep search failed');
+    } finally {
+      setQuotesLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen manar-page-bg p-8">
       <div className="max-w-7xl mx-auto space-y-10">
@@ -104,9 +133,9 @@ export default function BooksPage({ params }: any) {
 
         {/* Tabs */}
         <div className="flex justify-center md:justify-start">
-          <div className="glass-panel p-1.5 flex gap-2 rounded-xl">
+          <div className="glass-panel p-1.5 flex flex-wrap gap-2 rounded-xl">
             <button
-              onClick={() => setActiveTab('catalog')}
+              onClick={() => { setActiveTab('catalog'); setHasSearched(false); }}
               className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-bold transition-all ${
                 activeTab === 'catalog'
                   ? 'bg-manar-cyan text-manar-navy shadow-[0_0_15px_rgba(34,211,238,0.4)]'
@@ -117,7 +146,7 @@ export default function BooksPage({ params }: any) {
               Book Catalog
             </button>
             <button
-              onClick={() => setActiveTab('quotes')}
+              onClick={() => { setActiveTab('quotes'); setHasSearched(false); }}
               className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-bold transition-all ${
                 activeTab === 'quotes'
                   ? 'bg-manar-gold text-manar-navy shadow-[0_0_15px_rgba(212,168,67,0.4)]'
@@ -126,6 +155,17 @@ export default function BooksPage({ params }: any) {
             >
               <Quote className="w-4 h-4" />
               Quote Search
+            </button>
+            <button
+              onClick={() => { setActiveTab('deep'); setHasSearched(false); }}
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-bold transition-all ${
+                activeTab === 'deep'
+                  ? 'bg-amber-500 text-manar-navy shadow-[0_0_15px_rgba(245,158,11,0.4)]'
+                  : 'text-white/60 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              <Quote className="w-4 h-4" />
+              Deep Search
             </button>
           </div>
         </div>
@@ -181,10 +221,14 @@ export default function BooksPage({ params }: any) {
           </div>
         )}
 
-        {/* Quote Search View */}
-        {activeTab === 'quotes' && (
+        {/* Search Views (Shared logic for UI) */}
+        {(activeTab === 'quotes' || activeTab === 'deep') && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
-            <QuoteSearchBar onSearch={handleQuoteSearch} loading={quotesLoading} />
+            <QuoteSearchBar 
+              onSearch={handleQuoteSearch} 
+              loading={quotesLoading} 
+              isDeep={activeTab === 'deep'} 
+            />
             
             <div className="pt-4">
               {quotesLoading ? (
@@ -200,7 +244,7 @@ export default function BooksPage({ params }: any) {
                 <div className="space-y-4">
                   <h3 className="text-white/60 text-sm font-medium mb-4 flex items-center gap-2">
                     <span className="w-6 h-0.5 bg-manar-gold/50 rounded-full"></span>
-                    Page {quotePage} of {quoteTotalPages}
+                    Page {quotePage} of {quoteTotalPages} ({activeTab === 'deep' ? 'Deep Results' : 'General Results'})
                   </h3>
                   {quotes.map((quote, idx) => (
                     <QuoteResultCard key={`${quote.bookId}-${quote.pageNumber}-${idx}`} result={quote} />
@@ -233,16 +277,22 @@ export default function BooksPage({ params }: any) {
                   <SearchX className="w-12 h-12 text-white/20 mx-auto mb-4" />
                   <h3 className="text-xl font-medium text-white mb-2">No quotes found</h3>
                   <p className="text-blue-200/60 max-w-sm mx-auto">
-                    Try adjusting your search terms or selecting a different book to search inside.
+                    {activeTab === 'deep' 
+                      ? "Deep search explores the content of every page. Ensure your books are indexed in the Admin panel."
+                      : "Try adjusting your search terms or selecting a different book."}
                   </p>
                 </div>
               ) : (
                 <div className="text-center py-24 px-4 glass-card rounded-3xl relative overflow-hidden group">
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-manar-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <Quote className="w-16 h-16 text-manar-gold/20 mx-auto mb-6 rotate-180 rtl:rotate-0" />
-                  <h3 className="text-2xl font-bold text-white mb-3">Search Inside Books</h3>
+                  <h3 className="text-2xl font-bold text-white mb-3">
+                    {activeTab === 'deep' ? 'Deep Library Search' : 'Search Inside Books'}
+                  </h3>
                   <p className="text-blue-200/60 max-w-md mx-auto leading-relaxed">
-                    Instantly search for specific phrases, terms, or topics across our entire library of indexed logistics literature.
+                    {activeTab === 'deep'
+                      ? 'Detailed semantic search through thousands of book pages to find exactly what you need.'
+                      : 'Instantly search for specific phrases, terms, or topics across our entire library.'}
                   </p>
                 </div>
               )}

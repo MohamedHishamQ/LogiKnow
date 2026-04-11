@@ -22,7 +22,7 @@ export default function QuoteResultCard({ result }: { result: QuoteSearchResultD
             </p>
           </div>
           
-          <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-white/50 pt-4 border-t border-white/10">
+            <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-white/50 pt-4 border-t border-white/10">
             <div className="flex items-center gap-2 text-manar-cyan">
               <BookOpen className="w-4 h-4" />
               <span className="font-bold text-sm tracking-wide bg-gradient-to-r from-manar-cyan to-blue-400 bg-clip-text text-transparent">
@@ -30,11 +30,25 @@ export default function QuoteResultCard({ result }: { result: QuoteSearchResultD
               </span>
             </div>
             
+            {result.bookAuthors && (
+              <>
+                <div className="w-1.5 h-1.5 rounded-full bg-white/20"></div>
+                <span className="text-white/40">{result.bookAuthors}</span>
+              </>
+            )}
+
             <div className="w-1.5 h-1.5 rounded-full bg-white/20"></div>
             
             <span className="px-2 py-1 rounded bg-white/5 border border-white/10">
               Page {result.pageNumber}
             </span>
+
+            {result.bookCategory && (
+              <>
+                <div className="w-1.5 h-1.5 rounded-full bg-white/20"></div>
+                <span className="text-manar-gold/60">{result.bookCategory}</span>
+              </>
+            )}
           </div>
         </div>
       </div>

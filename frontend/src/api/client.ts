@@ -87,9 +87,20 @@ export interface SearchResultDto {
 export interface QuoteSearchResultDto {
   bookId: string;
   bookTitle: string;
+  bookAuthors?: string;
+  bookCategory?: string;
+  bookCoverUrl?: string;
   pageNumber: number;
+  snippet: string;
   highlight: string;
-  surroundingContext: string;
+}
+
+export interface QuoteSearchBookItem {
+  id: string;
+  title: string;
+  category: string;
+  language: string;
+  hasPages: boolean;
 }
 
 export interface PaginatedResponse<T> {
@@ -195,8 +206,16 @@ export const SearchService = {
   search: (query: string, type?: string, page = 1, size = 20) => 
     apiClient.get<PaginatedResponse<SearchResultDto>>('/search', { params: { q: query, type, page, size } }),
     
+  // Old Search logic
   searchQuotes: (query: string, bookId?: string, page = 1, size = 20) =>
-    apiClient.get<PaginatedResponse<QuoteSearchResultDto>>('/search/quotes', { params: { q: query, bookId, page, size }})
+    apiClient.get<PaginatedResponse<QuoteSearchResultDto>>('/search/quotes', { params: { q: query, bookId, page, size }}),
+
+  // NEW DEEP SEARCH LOGIC
+  deepSearch: (query: string, bookId?: string, page = 1, size = 20) =>
+    apiClient.get<PaginatedResponse<QuoteSearchResultDto>>('/quotesearch', { params: { q: query, bookId: bookId === 'all' ? undefined : bookId, page, size }}),
+
+  getDeepSearchBooks: () =>
+    apiClient.get<{ data: QuoteSearchBookItem[] }>('/quotesearch/books')
 };
 
 export const AuthService = {
