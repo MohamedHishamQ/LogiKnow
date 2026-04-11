@@ -21,14 +21,17 @@ public class SearchController : ControllerBase
 
     [HttpGet]
     public async Task<IActionResult> GlobalSearch(
-        [FromQuery] string q, [FromQuery] string? types,
+        [FromQuery] string q, 
+        [FromQuery] string? types,
+        [FromQuery] string? type, // Compatibility with JS client
         [FromQuery] int page = 1, [FromQuery] int size = 20, CancellationToken ct = default)
     {
-        _logger.LogDebug("Global search: q={Query}, types={Types}", q, types);
+        _logger.LogDebug("Global search: q={Query}, types={Types}, type={Type}", q, types, type);
         if (string.IsNullOrWhiteSpace(q))
             return BadRequest(new { error = "Query parameter 'q' is required." });
 
-        var typeArray = types?.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        var combinedTypes = $"{types},{type}";
+        var typeArray = combinedTypes.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         var result = await _mediator.Send(new GlobalSearchQuery(q, typeArray, page, size), ct);
         return Ok(result);
     }

@@ -23,8 +23,8 @@ public class MockSearchService : ISearchService
         var results = new List<SearchResult>();
         var lq = query.ToLower();
 
-        bool includeTerms   = types == null || types.Length == 0 || types.Any(t => t.Equals("term",     StringComparison.OrdinalIgnoreCase));
-        bool includeBooks    = types == null || types.Length == 0 || types.Any(t => t.Equals("book",     StringComparison.OrdinalIgnoreCase));
+        bool includeTerms   = types == null || types.Length == 0 || types.Any(t => t.Equals("term",     StringComparison.OrdinalIgnoreCase) || t.Equals("terms", StringComparison.OrdinalIgnoreCase));
+        bool includeBooks    = types == null || types.Length == 0 || types.Any(t => t.Equals("book",     StringComparison.OrdinalIgnoreCase) || t.Equals("books", StringComparison.OrdinalIgnoreCase));
         bool includeAcademic = types == null || types.Length == 0 || types.Any(t => t.Equals("academic", StringComparison.OrdinalIgnoreCase));
 
         if (includeTerms)
