@@ -1,4 +1,7 @@
-import { SearchService, BookDto, QuoteSearchBookItem } from '@/api/client';
+import { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
+import { Search, Loader2, Book, Anchor } from 'lucide-react';
+import { BooksService, SearchService, BookDto, QuoteSearchBookItem } from '@/api/client';
 
 export default function QuoteSearchBar({ 
   onSearch, 

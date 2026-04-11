@@ -2,10 +2,10 @@ import { QuoteSearchResultDto } from '@/api/client';
 import { BookOpen, Quote } from 'lucide-react';
 
 export default function QuoteResultCard({ result }: { result: QuoteSearchResultDto }) {
-  // Use highlight if available, otherwise just use surrounding context
+  // Use highlight if available, otherwise just use snippet
   const htmlContent = result.highlight || (
-    result.surroundingContext ? 
-      result.surroundingContext : ''
+    result.snippet ? 
+      result.snippet : ''
   );
 
   return (
