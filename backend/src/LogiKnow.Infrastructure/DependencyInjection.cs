@@ -56,7 +56,7 @@ public static class DependencyInjection
         services.AddScoped<IArenaVideoRepository, ArenaVideoRepository>();
 
         // Services
-        services.AddScoped<ISearchService, MockSearchService>();
+        services.AddScoped<ISearchService, ElasticsearchService>();
         services.AddScoped<IAIService, GeminiAIService>();
         services.AddScoped<IJwtService, JwtService>();
         services.AddScoped<IEmailService, EmailService>();
