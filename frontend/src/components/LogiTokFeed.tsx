@@ -51,7 +51,7 @@ export default function LogiTokFeed() {
     <div className="flex flex-col h-full overflow-hidden relative">
       {/* Sticky Header */}
       <div className="flex-shrink-0 flex justify-between items-center px-6 py-4 z-20 bg-black/40 backdrop-blur-md border-b border-white/5">
-        <h2 className="text-2xl font-black text-white glow-text italic">MANAR Arena</h2>
+        <h2 className="text-2xl font-black text-white glow-text italic">The Hub <span className="text-manar-gold">Arena</span></h2>
         <span className="px-4 py-1 rounded-full glass-panel text-xs text-manar-cyan font-bold tracking-widest border-manar-cyan/50">LIVE PITCHES</span>
       </div>
 

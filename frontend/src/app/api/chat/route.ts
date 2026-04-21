@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 
 
-const SYSTEM_PROMPT = `You are MANAR AI Assistant (منار), a specialized logistics and supply chain knowledge assistant for the MANAR educational platform.
+const SYSTEM_PROMPT = `You are an AI Assistant for "Your Comprehensive Hub for Logistics & Supply Chain", a specialized logistics and supply chain knowledge assistant for this educational platform.
 
 Your expertise covers:
 - Logistics terminology (Incoterms, FOB, CIF, CFR, EXW, etc.)

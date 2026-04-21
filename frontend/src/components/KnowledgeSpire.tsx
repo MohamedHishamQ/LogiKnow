@@ -49,17 +49,17 @@ export default function KnowledgeSpire() {
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-6xl font-black text-white mb-2"
+          className="text-5xl font-black text-white mb-2 leading-tight"
         >
-          MANAR <span className="text-4xl text-manar-gold">منار</span>
+          Your Comprehensive Hub for<br /><span className="text-manar-gold">Logistics & Supply Chain</span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="text-xl text-white/60 tracking-widest uppercase font-semibold"
+          className="text-base text-white/50 tracking-widest uppercase font-semibold"
         >
-          Logistics Educational Web Application
+          Educational Platform
         </motion.p>
       </div>
 
