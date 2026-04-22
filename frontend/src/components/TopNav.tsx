@@ -37,7 +37,7 @@ export default function TopNav() {
           <div className="flex-shrink-0 flex items-center pr-8 rtl:pr-0 rtl:pl-8">
             <Link href="/" className="flex items-center gap-2 font-black text-2xl tracking-tight text-white whitespace-nowrap">
               <Anchor className="w-8 h-8 flex-shrink-0 text-manar-cyan" />
-              <span className="text-base font-black leading-tight">Your Comprehensive Hub for<br /><span className="text-manar-gold">Logistics & Supply Chain</span></span>
+              <span className="text-xl font-black leading-tight">Logistics <span className="text-manar-gold">Hub</span></span>
             </Link>
           </div>
           
