@@ -49,10 +49,18 @@ export default function KnowledgeSpire() {
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl font-black text-white mb-2 leading-tight"
+          className="text-7xl font-black text-white mb-3 leading-tight tracking-tight"
+        >
+          Logistics <span className="text-manar-gold">Hub</span>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="text-2xl font-semibold text-white/80 mb-1 leading-snug"
         >
           Your Comprehensive Hub for<br /><span className="text-manar-gold">Logistics & Supply Chain</span>
-        </motion.h1>
+        </motion.p>
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
